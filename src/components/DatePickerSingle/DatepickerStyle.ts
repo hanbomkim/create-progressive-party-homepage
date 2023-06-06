@@ -211,7 +211,7 @@ export const DateWrapper = styled.div`
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
-    background: var(--date);
+    background: var(--outline);
   }
 
   //캘린더 선택된 날짜 hover 했을 때 색상 변경
@@ -235,7 +235,7 @@ export const DateWrapper = styled.div`
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
-    background: var(--outline);
+    background: var(--date);
     padding: 3px;
   }
 
