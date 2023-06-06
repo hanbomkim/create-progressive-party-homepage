@@ -168,7 +168,7 @@ body {
   outline: 0;
 }
 
-body[data-theme="light"] {
+body {
   --bg: #fff;
   --outline: #70cdd8;
   --shadow: #2c3e5015;
