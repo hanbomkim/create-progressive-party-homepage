@@ -34,7 +34,7 @@ const Fullpage = () => {
               <ContentText>
                 언제나 (가칭)국민주권당은 국민 곁에 있습니다.
               </ContentText>
-              <RoutingButton href={"/project"}>
+              <RoutingButton href={"/invite-proposar"}>
                 (가칭)국민주권당 창당 발기인 참여하기
               </RoutingButton>
             </LandingSlideWrapper>
