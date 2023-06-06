@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import { ArrowIcon } from "@/styles/svg/Arrow";
+import { FlexLayout } from "../Fullpage.style";
 import {
   Option,
   OptionWrap,
@@ -37,10 +38,12 @@ const Select = (props: SelectProps) => {
 
   return (
     <SelectboxWrapper>
-      <ToggleBtn onClick={() => setIsToggle(!isToggle)}>
-        {value.label}
+      <FlexLayout>
+        <ToggleBtn onClick={() => setIsToggle(!isToggle)}>
+          {value.label}
+        </ToggleBtn>
         <ArrowIcon />
-      </ToggleBtn>
+      </FlexLayout>
       <Selectbox hide={!isToggle}>
         {options.map((item) => (
           <OptionWrap key={item.value} onClick={() => handleSelect(item)}>
