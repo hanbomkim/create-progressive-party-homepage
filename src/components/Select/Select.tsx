@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import { ArrowIcon } from "@/styles/svg/Arrow";
 import {
   Option,
   OptionWrap,
@@ -38,7 +39,7 @@ const Select = (props: SelectProps) => {
     <SelectboxWrapper>
       <ToggleBtn onClick={() => setIsToggle(!isToggle)}>
         {value.label}
-        {/* <img src="./img/icon-Triangle-down.svg" alt="" class="ico-down"> */}
+        <ArrowIcon />
       </ToggleBtn>
       <Selectbox hide={!isToggle}>
         {options.map((item) => (
