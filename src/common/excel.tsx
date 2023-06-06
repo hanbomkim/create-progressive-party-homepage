@@ -1,5 +1,5 @@
 import ExcelJS from "exceljs";
-import * as FileSaver from "file-saver";
+// import { axios } from 'axios';
 
 // eslint-disable-next-line react-hooks/rules-of-hooks
 
@@ -14,6 +14,7 @@ type downloadProps = {
   toDay: string;
   email: string;
   phoneNumber: string;
+  receiveAgreement: string;
   jobName: string;
   address: string;
   signature: string;
@@ -33,6 +34,7 @@ export const downloadForm = (data: downloadProps) => {
     jobName,
     address,
     signature,
+    receiveAgreement,
   } = data;
 
   // 스타일 생성
@@ -306,9 +308,95 @@ export const downloadForm = (data: downloadProps) => {
   worksheet.getColumn(5).width = 20;
   worksheet.getColumn(6).width = 20;
   workbook.xlsx.writeBuffer().then((buffer) => {
-    const blob = new Blob([buffer], {
-      type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8",
-    });
-    FileSaver.saveAs(blob, `${data.userName}.xlsx`);
+    const formData = new FormData();
+
+    // Uint8Array 형식의 버퍼 데이터를 Base64로 변환하는 함수
+    const uint8ArrayToBase64 = (uint8Array) => {
+      var binary = "";
+      var length = uint8Array.byteLength;
+      for (var i = 0; i < length; i++) {
+        binary += String.fromCharCode(uint8Array[i]);
+      }
+      return btoa(binary);
+    };
+    // Uint8Array 형식의 버퍼 데이터 생성 예시
+    const buf = new Uint8Array(buffer);
+
+    // Uint8Array를 Base64로 변환
+    const base64 = uint8ArrayToBase64(buf);
+    console.log(base64);
+    console.log(typeof base64);
+
+    // const blob = new Blob([buffer], {
+    //   type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8",
+    // });
+
+    formData.append("name", userName);
+    formData.append("phoneNumber", phoneNumber);
+    formData.append("receiveAgreement", receiveAgreement);
+    formData.append("file", base64);
+
+    // console.log("[post with access_token]" + url + "/" + routeName);
+    // return axios
+    //   .post(
+    //     "https://script.google.com/macros/s/AKfycbzjHormEkG5mhaRWwmytgUCL1uJjwbYPZCS4cGhU1hLuSmnB0H0pPoSvPnauy5Kb9xr9w/exec",
+    //     formData
+    //   )
+    //   .then((response) => response)
+    //   .then((data) => {
+    //     console.log(data);
+    //     // 파일 전송 성공 후 처리할 작업
+    //   })
+    //   .catch((error) => {
+    //     console.error("Error:", error);
+    //   });
+
+    fetch(
+      "https://script.google.com/macros/s/AKfycbwLwwnidFNUXXYONnzvCltwITaCByOABYx51FKZ0FoZAQ-yrPtbb-rnpliVKOApvHB0Qg/exec",
+      {
+        method: "POST",
+        body: formData,
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        // 파일 전송 성공 후 처리할 작업
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+    // // FileSaver.saveAs(blob, `${data.userName}.xlsx`);
   });
+
+  // workbook.xlsx
+  //   .writeBuffer()
+  //   .then((buffer) => {
+  //     // 버퍼를 FormData로 감싸기
+  //     const formData = new FormData();
+  //     const file = new File([buffer], `${data.userName} 발기인 동의서.xlsx`, {
+  //       type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8",
+  //     });
+  //     formData.append("file", file);
+
+  //     // POST 요청 보내기
+  //     axios
+  //       .post("URL", formData, {
+  //         headers: {
+  //           "Content-Type": "multipart/form-data",
+  //         },
+  //       })
+  //       .then((response) => {
+  //         console.log("파일 전송 완료");
+  //         // 성공적으로 전송된 경우의 처리 작업 수행
+  //       })
+  //       .catch((error) => {
+  //         console.error("파일 전송 실패:", error);
+  //         // 전송 실패 시의 처리 작업 수행
+  //       });
+  //   })
+  //   .catch((error) => {
+  //     console.error("엑셀 파일 생성 실패:", error);
+  //     // 파일 생성 실패 시의 처리 작업 수행
+  //   });
 };

@@ -1,7 +1,8 @@
 import { NotiText } from "@/components/InviteForm/Styled";
-import styled from "@emotion/styled";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import SignatureCanvas from "react-signature-canvas";
+import styled from "styled-components";
+
 const CanvasWrapper = styled.div`
   position: relative;
   width: 100%;
@@ -17,47 +18,29 @@ const CanvasResetWrapper = styled.div`
   text-align: center;
 `;
 
-export const Signature: React.FC = () => {
-  const signatureCanvasRef = useRef<SignatureCanvas>(null);
-  const [isSignatureEmpty, setIsSignatureEmpty] = useState(true);
+export const Signature = ({
+  forwardedRef,
+}: {
+  forwardedRef: React.RefObject<SignatureCanvas>;
+}) => {
+  const [isSignatureWritten, setIsSignatureWritten] = useState(false);
+  const convertDataUrlToFile = () => {
+    const dataURL = forwardedRef.current.toDataURL("image/png");
+    // const decodedURL = dataURL.replace(/^data:image\/\w+;base64,/, "");
+    // const buf = Buffer.from(decodedURL, "base64");
+    // const blob = new Blob([buf], { type: "image/png" });
+    // return new File([blob], `${name}.png`, { type: "image/png" });
+  };
 
-  const handleReset = () => {
-    if (signatureCanvasRef.current) {
-      signatureCanvasRef.current.clear();
-      setIsSignatureEmpty(true);
+  const handleCancel = () => {
+    if (forwardedRef.current && isSignatureWritten) {
+      forwardedRef.current.clear();
+      setIsSignatureWritten(false);
     }
   };
-
-  const handleSave = () => {
-    if (signatureCanvasRef.current) {
-      const signatureImage = signatureCanvasRef.current.toDataURL("image/png");
-      // 서명 이미지를 저장하거나 다른 작업을 수행할 수 있습니다.
-      console.log(signatureImage);
-    }
+  const handleDraw = () => {
+    setIsSignatureWritten(true);
   };
-
-  const handleBegin = () => {
-    setIsSignatureEmpty(false);
-  };
-
-  // const [isSignatureWritten, setIsSignatureWritten] = useState(false);
-  // const convertDataUrlToFile = () => {
-  //   const dataURL = forwardedRef.current.toDataURL("image/png");
-  //   // const decodedURL = dataURL.replace(/^data:image\/\w+;base64,/, "");
-  //   // const buf = Buffer.from(decodedURL, "base64");
-  //   // const blob = new Blob([buf], { type: "image/png" });
-  //   // return new File([blob], `${name}.png`, { type: "image/png" });
-  // };
-
-  // const handleCancel = () => {
-  //   if (forwardedRef.current && isSignatureWritten) {
-  //     forwardedRef.current.clear();
-  //     setIsSignatureWritten(false);
-  //   }
-  // };
-  // const handleDraw = () => {
-  //   setIsSignatureWritten(true);
-  // };
 
   return (
     <>
@@ -65,17 +48,26 @@ export const Signature: React.FC = () => {
         <NotiText>반드시 본인의 성명을 정자로 기재해주세요.</NotiText>
         <SignatureWrap>
           <SignatureCanvas
-            ref={signatureCanvasRef}
-            canvasProps={{ width: 420, height: 111 }}
-            onBegin={handleBegin}
+            canvasProps={{
+              className: "signature-canvas",
+              height: 111,
+              width: 420,
+            }}
+            ref={forwardedRef}
+            // onEnd={handleDraw}
           />
         </SignatureWrap>
-        <button onClick={handleReset} disabled={isSignatureEmpty}>
-          리셋
-        </button>
-        <button onClick={handleSave} disabled={isSignatureEmpty}>
-          저장
-        </button>
+        {/* <CanvasResetWrapper>
+          <Button
+            style={{
+              width: "25%",
+              height: "43px",
+            }}
+            onClick={handleCancel}
+          >
+            다시 작성하기
+          </Button>
+        </CanvasResetWrapper> */}
       </CanvasWrapper>
     </>
   );

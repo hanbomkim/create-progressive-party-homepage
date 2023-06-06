@@ -1,4 +1,5 @@
 import DaumPost from "@/common/DaumPost";
+import { Signature } from "@/common/Signature";
 import { downloadForm } from "@/common/excel";
 import { Button } from "@/components/Button";
 import DatePickerSingle from "@/components/DatePickerSingle";
@@ -125,6 +126,7 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
       toDay: format(new Date(), "PPP", { locale: ko }),
       email: emailValueRef.current,
       phoneNumber: phoneNumberValueRef.current,
+      receiveAgreement: agreeMessageValueRef.current ? "동의" : "미동의",
       jobName: jobnameValueRef.current,
       address: addressNumValue + addressDetailValueRef.current,
       signature: signatureRef.current.toDataURL("image/png"),
@@ -297,10 +299,9 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
           <label>
             <RowWrap>
               <LabelText required>서명</LabelText>
-              {/* <InputWrap>
+              <InputWrap>
                 <Signature forwardedRef={signatureRef} />
-                <button onClick={handleCancel}>다시 작성하기</button>
-              </InputWrap> */}
+              </InputWrap>
             </RowWrap>
           </label>
           <AgreeCheckbox all>

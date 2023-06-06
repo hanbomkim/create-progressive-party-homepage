@@ -8,11 +8,7 @@ export default function About() {
     <Container>
       <TitleContainer flex={true}>
         <QuoteStartIcon />
-        <AboutHeader>
-          국민을 생각하는 정치
-          <br />
-          국민주권당이 하겠습니다
-        </AboutHeader>
+        <AboutHeader>주권자 국민들의 정면돌파 정치!</AboutHeader>
         <QuoteEndIcon />
       </TitleContainer>
       <MyProfile />
