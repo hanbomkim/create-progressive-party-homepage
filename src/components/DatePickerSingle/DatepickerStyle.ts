@@ -120,7 +120,7 @@ export const DateWrapper = styled.div`
 
   //요일 색상 변경
   .react-datepicker__day-name {
-    color: $primary-color;
+    color: var(--date);
   }
   .react-datepicker__month {
     height: 150px;
@@ -235,7 +235,7 @@ export const DateWrapper = styled.div`
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
-    background: lighten(#838aeb, 8%);
+    background: var(--outline);
     padding: 3px;
   }
 
