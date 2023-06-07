@@ -6,7 +6,7 @@ import {
 
 type SignaturePadProps = {
   padRef: React.RefObject<SignatureCanvas | null>;
-};
+}; //타입 설정
 
 export const SignatureComponent: React.FC<SignaturePadProps> = ({ padRef }) => {
   const clear = () => {
