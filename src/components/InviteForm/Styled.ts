@@ -5,6 +5,14 @@ export const ConsultationRequestRoot = styled.section`
   background-color: #fff;
 `;
 
+export const SignatureWrapper = styled.div`
+  border: 1px solid #e2e5ed;
+  border-radius: 6px;
+  margin-bottom: 2em;
+  .sigCanvas {
+    width: 100%;
+  }
+`;
 export const ConsultationRequestForm = styled.div`
   display: flex;
   flex-direction: column;

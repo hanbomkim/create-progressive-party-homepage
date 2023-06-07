@@ -1,3 +1,5 @@
+import { Button } from "@/components/Button";
+import { NotiText, SignatureWrapper } from "@/components/InviteForm/Styled";
 import React from "react";
 import {
   default as SignatureCanvas,
@@ -18,12 +20,15 @@ export const SignatureComponent: React.FC<SignaturePadProps> = ({ padRef }) => {
   };
 
   return (
-    <div>
-      <SignaturePad ref={padRef} canvasProps={{ className: "sigCanvas" }} />
+    <>
+      <SignatureWrapper>
+        <NotiText>반드시 본인의 이름을 정자로 기재해주세요.</NotiText>
+        <SignaturePad ref={padRef} canvasProps={{ className: "sigCanvas" }} />
+      </SignatureWrapper>
       <div className="sigPreview">
         <button onClick={trim}></button>
-        <button onClick={clear}>Clear</button>
+        <Button onClick={clear}>다시 서명하기</Button>
       </div>
-    </div>
+    </>
   );
 };
