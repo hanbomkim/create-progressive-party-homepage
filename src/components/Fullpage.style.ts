@@ -36,7 +36,7 @@ export const LandingTextWrapper = styled.div`
   width: 100%;
   flex-direction: column;
   z-index: 100;
-  gap: 1rem;
+  /* gap: 1rem; */
   padding: 0 0 0 20.5vw;
 `;
 export const HeaderText = styled.h2<{
@@ -46,17 +46,20 @@ export const HeaderText = styled.h2<{
   font-weight: 700;
   font-size: ${({ fontSize }) => (fontSize ? fontSize : "3vw")};
   color: ${({ color }) => (color ? color : "#375251")};
-  line-height: 2em;
+  /* line-height: 2em; */
 `;
 export const ContentText = styled.p`
   font-size: 1.5vw;
   font-weight: 600;
   color: #375251;
 `;
-export const LandingSlideWrapper = styled.div`
+export const LandingSlideWrapper = styled.div<{
+  noGap?: boolean;
+}>`
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: ${({ noGap }) => (!noGap ? "1em" : "0")};
+  /* gap: 1em; */
   @keyframes fadeInUp {
     from {
       opacity: 0;
@@ -87,6 +90,7 @@ export const LandingRightTextWrapper = styled.div`
   width: 45%;
   display: flex;
   align-items: center;
+  gap: 1em;
 `;
 export const FlexLayout = styled.div`
   display: flex;

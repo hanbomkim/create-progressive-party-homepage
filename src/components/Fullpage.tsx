@@ -26,7 +26,7 @@ const Fullpage = () => {
       <div>
         <Section>
           <LandingTextWrapper>
-            <LandingSlideWrapper>
+            <LandingSlideWrapper noGap={true}>
               <HeaderText>주권자 국민의 정면돌파 직접정치</HeaderText>
               <HeaderText>국민주권당 창당을 시작합니다!</HeaderText>
               {/* <ContentText>주권자 국민의 정면돌파 직접정치</ContentText> */}
