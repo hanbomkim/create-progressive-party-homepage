@@ -8,7 +8,7 @@ export const TitleContainer = styled.div<{
   text-align: center;
   justify-content: center;
 
-  h1 {
+  h2 {
     font-size: 30px;
     font-weight: 600;
   }
@@ -19,7 +19,7 @@ export const TitleContainer = styled.div<{
   }
 `;
 export const AboutHeader = styled.h1`
-  font-size: 2em;
+  font-size: 3.5em;
   font-weight: 600;
   line-height: 2;
 `;

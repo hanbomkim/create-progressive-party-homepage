@@ -30,7 +30,7 @@ export const CoverImage = styled(Image)`
 export const LandingTextWrapper = styled.div`
   position: absolute;
   display: flex;
-  height: 10%;
+  height: 11%;
   background: rgba(255, 255, 255, 0.4);
   justify-content: center;
   width: 100%;
@@ -49,14 +49,14 @@ export const HeaderText = styled.h2<{
   line-height: 2em;
 `;
 export const ContentText = styled.p`
-  font-size: 1.1vw;
+  font-size: 1.5vw;
   font-weight: 600;
   color: #375251;
 `;
 export const LandingSlideWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.5em;
+  gap: 1em;
   @keyframes fadeInUp {
     from {
       opacity: 0;

@@ -30,17 +30,14 @@ export const ProfileTextContainer = styled.div`
   gap: 15px;
   /* padding: 24px; */
 
-  h1 {
-    font-size: 1.2em;
-    font-weight: 500;
+  span {
+    font-size: 1.7em;
+    font-weight: 700;
   }
 
   p {
-    font-size: 1.2em;
+    font-size: 1.4em;
     font-weight: 400;
     opacity: 0.7;
-    span {
-      font-weight: 700;
-    }
   }
 `;

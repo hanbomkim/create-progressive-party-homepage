@@ -20,7 +20,7 @@ export const QuoteEndIcon = () => {
       fill="#e2e5ed"
       stroke-width="0"
       viewBox="0 0 24 1"
-      height="5em"
+      height="8em"
       width="3em"
       xmlns="http://www.w3.org/2000/svg"
     >
