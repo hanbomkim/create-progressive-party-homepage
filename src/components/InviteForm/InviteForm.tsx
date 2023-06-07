@@ -1,5 +1,5 @@
 import DaumPost from "@/common/DaumPost";
-import { Signature } from "@/common/Signature";
+import { SignatureComponent } from "@/common/SignatureComponent";
 import { downloadForm } from "@/common/excel";
 import { Button } from "@/components/Button";
 import DatePickerSingle from "@/components/DatePickerSingle";
@@ -10,8 +10,8 @@ import { ArrowIcon } from "@/styles/svg/Arrow";
 import { CheckIcon } from "@/styles/svg/Check";
 import { format } from "date-fns";
 import { ko } from "date-fns/locale";
-import { ForwardedRef, useRef, useState } from "react";
-import SignatureCanvas from "react-signature-canvas";
+import React, { ForwardedRef, useState } from "react";
+import { default as SignatureCanvas } from "react-signature-canvas";
 import ErrorInput from "../Input/ErrorInput";
 import {
   AgreeCheckbox,
@@ -75,7 +75,7 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
 
   const [addressNumValue, setAddressNumValue] = useState<string>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const signatureRef = useRef<SignatureCanvas>(null);
+  const padRef = React.useRef<SignatureCanvas>(null);
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [selectedDate, setSelectedDate] = useState<Date>(null);
   const [genderSelect, setGenderSelect] = useState<changPops>(genderOptions[0]);
@@ -134,17 +134,13 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
       receiveAgreement: agreeMessageValueRef.current ? "동의" : "미동의",
       jobName: jobnameValueRef.current,
       address: addressNumValue + addressDetailValueRef.current,
-      signature: signatureRef.current.toDataURL("image/png"),
+      signature: padRef.current?.getTrimmedCanvas().toDataURL("image/png"),
     };
     downloadForm(sendData);
   };
 
   const handleAddressInput = (e) => {
     setAddressNumValue(e.target.value);
-  };
-
-  const handleCancel = () => {
-    signatureRef.current.clear();
   };
 
   return (
@@ -305,7 +301,7 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
             <RowWrap>
               <LabelText required>서명</LabelText>
               <InputWrap>
-                <Signature forwardedRef={signatureRef} />
+                <SignatureComponent padRef={padRef} />
               </InputWrap>
             </RowWrap>
           </label>

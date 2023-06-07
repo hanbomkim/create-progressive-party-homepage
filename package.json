@@ -12,12 +12,16 @@
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@next/font": "13.1.6",
+    "@types/react-signature-canvas": "^1.0.2",
     "facepaint": "^1.2.1",
     "next": "13.1.6",
     "next-seo": "^5.15.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-fullpage": "^0.1.19"
+    "react-fullpage": "^0.1.19",
+    "react-signature-canvas": "^1.0.6",
+    "react-signature-pad-wrapper": "^3.3.1",
+    "signature_pad": "^4.1.5"
   },
   "devDependencies": {
     "@emotion/babel-plugin": "^11.10.6",
@@ -25,7 +29,6 @@
     "@types/react": "18.0.28",
     "@types/react-datepicker": "^4.11.2",
     "@types/react-dom": "18.0.11",
-    "@types/react-signature-canvas": "^1.0.2",
     "axios": "^1.4.0",
     "eslint": "8.34.0",
     "eslint-config-next": "13.1.6",
@@ -33,9 +36,6 @@
     "file-saver": "^2.0.5",
     "react-datepicker": "^4.12.0",
     "react-daum-postcode": "^3.1.1",
-    "react-signature-canvas": "^1.0.6",
-    "react-signature-pad-wrapper": "^3.3.1",
-    "signature_pad": "^4.1.5",
     "styled-components": "^5.3.11",
     "typescript": "4.9.5"
   }
