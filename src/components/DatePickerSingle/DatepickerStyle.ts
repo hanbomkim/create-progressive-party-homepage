@@ -10,6 +10,7 @@ export const DateWrapper = styled.div`
   }
 
   .f__datepicker {
+    height: 3.5rem;
     cursor: pointer;
     width: 100%;
     padding: 11.5px 48px 8.5px 12px;
@@ -44,31 +45,41 @@ export const DateWrapper = styled.div`
       cursor: default;
     }
   }
+  .react-datepicker__navigation--previous {
+    left: 0rem;
+  }
+  .react-datepicker__navigation {
+    height: 3rem;
+    width: 2rem;
+  }
+  .react-datepicker__navigation--next {
+    left: 19rem;
+  }
 
-  .react-datepicker__input-container:after {
+  /* .react-datepicker__input-container:after {
     content: "";
     position: absolute;
     width: 48px;
     height: calc(100% - 2px);
     border-left: 1px solid #ececec;
     box-sizing: border-box;
-    top: 1px;
     bottom: 0;
-    right: 0;
+    top: 0.5rem;
+    font-size: 1.5rem;
     background-color: transparent;
     color: transparent;
     background-image: url("./styles/svg/calendar.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 12px 13px;
-  }
+  } */
 
-  //드랍다운 캘린더 위치 수정
+  /* //드랍다운 캘린더 위치 수정
   .react-datepicker-popper[data-placement^="bottom"] {
     padding-top: 3px;
-  }
+  } */
 
-  //드랍다운 캘린더 스타일
+  /* //드랍다운 캘린더 스타일
   .react-datepicker {
     border-color: #e8ebf1;
     color: #333;
@@ -83,7 +94,7 @@ export const DateWrapper = styled.div`
       size: 12px;
       weight: 400;
     }
-  }
+  } */
 
   //툴팁 삼각형 제거
   .react-datepicker__triangle {
@@ -99,7 +110,7 @@ export const DateWrapper = styled.div`
 
   //좌우 화살표 버튼 위치 수정
   .react-datepicker__navigation {
-    top: 14px;
+    top: 1rem;
   }
 
   //좌우 화살표 스타일 변경
@@ -110,12 +121,15 @@ export const DateWrapper = styled.div`
     border-color: #838aeb;
     border-width: 1px 1px 0 0;
     height: 7px;
-    top: 7px;
+    top: 23px;
     width: 7px;
   }
   .react-datepicker__month-container {
-    width: 250px;
-    height: 230px;
+    width: 21rem;
+    height: 20.7rem;
+    border: 1px solid #ccc;
+    position: absolute;
+    /* top: 1.5rem; */
   }
 
   //요일 색상 변경
@@ -123,8 +137,10 @@ export const DateWrapper = styled.div`
     color: var(--date);
   }
   .react-datepicker__month {
-    height: 150px;
-    padding: 8px 0px;
+    height: 15rem;
+    background: #fff;
+    padding: 0.3rem;
+    margin: 0;
   }
   .react-datepicker__week {
     display: flex;
@@ -133,7 +149,7 @@ export const DateWrapper = styled.div`
 
   //요일 구분 보더 추가
   .react-datepicker__day-names {
-    height: 34px;
+    height: 2.5rem;
     background: #fff;
     border-top: 1px solid #e8ebf1;
     border-bottom: 1px solid #e8ebf1;
@@ -150,8 +166,8 @@ export const DateWrapper = styled.div`
 
   //헤더 높이 변경
   .react-datepicker__header__dropdown.react-datepicker__header__dropdown--select {
-    height: 50px;
-    padding: 10px 0;
+    height: 3.5rem;
+    padding: 0.2rem 0;
   }
 
   //헤더 월, 연도 션택 공통 수정
@@ -185,7 +201,7 @@ export const DateWrapper = styled.div`
   .react-datepicker__week .react-datepicker__day-name,
   .react-datepicker__week .react-datepicker__day,
   .react-datepicker__week .react-datepicker__time-name {
-    font-size: 12px;
+    font-size: 1rem;
     color: #333;
     padding: 3px;
   }

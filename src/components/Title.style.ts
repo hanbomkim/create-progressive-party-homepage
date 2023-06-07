@@ -9,17 +9,17 @@ export const TitleContainer = styled.div<{
   justify-content: center;
 
   h2 {
-    font-size: 3.5em;
+    font-size: 2.5rem;
     font-weight: 600;
   }
 
   p {
-    font-size: 1.8em;
+    font-size: 1.5rem;
     color: var(--text-base-90);
   }
 `;
 export const AboutHeader = styled.h1`
-  font-size: 3.5em;
+  font-size: 2.5rem;
   font-weight: 600;
   line-height: 2;
 `;

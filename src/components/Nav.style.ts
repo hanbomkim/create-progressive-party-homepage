@@ -19,12 +19,12 @@ export const NavContainer = styled.div<{
     box-sizing: content-box;
     margin: 0 auto;
     padding: 0 22px;
-    height: 68px;
+    height: 4rem;
   }
 `;
 
 export const NavTitle = styled.div`
-  font-size: 1.2vw;
+  font-size: 1.2rem;
   font-weight: 700;
   color: #375251;
 `;
@@ -40,7 +40,7 @@ export const Links = styled.div`
     li {
       margin-left: 15px;
       font-weight: 700;
-      font-size: 1.2vw;
+      font-size: 1.2rem;
       color: #375251;
       &:hover a {
         transition: color 0.5s, border 0.5s;

@@ -47,11 +47,11 @@ export const ModalHeader = styled.div`
 `;
 
 export const ModalTitle = styled.div`
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: bold;
 `;
 export const ModalCloseButton = styled.div`
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: bold;
   .icon-close {
     width: 12px;

@@ -1,5 +1,5 @@
-import mq from '@/styles/utils/mq';
-import styled from '@emotion/styled';
+import mq from "@/styles/utils/mq";
+import styled from "@emotion/styled";
 
 export const ProjectCardsContainer = styled.div`
   display: flex;
@@ -11,8 +11,8 @@ export const ProjectCardsContainer = styled.div`
     padding: 12px 8px;
 
     ${mq({
-      width: ['33.3333%', '33.3333%', '50%', '100%'],
-      padding: ['12px 8px', '12px 8px', '8px', '12px 8px'],
+      width: ["33.3333%", "33.3333%", "50%", "100%"],
+      padding: ["12px 8px", "12px 8px", "8px", "12px 8px"],
     })}
   }
 `;
@@ -47,7 +47,7 @@ export const ProjectInfo = styled.div`
 export const ProjectTitle = styled.h3`
   width: 100%;
   display: block;
-  font-size: 16px;
+  font-size: 1rem;
   transition: all 0.2s ease;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -59,7 +59,7 @@ export const ProjectDes = styled.p`
   height: 4.68em;
   word-break: break-word;
   opacity: 0.5;
-  font-size: 14px;
+  font-size: 0.875rem;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;

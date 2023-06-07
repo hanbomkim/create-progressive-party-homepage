@@ -1,5 +1,6 @@
 import { CheckIcon } from "@/styles/svg/Check";
 import { Section, SectionsContainer } from "react-fullpage";
+import { useMediaQuery } from "react-responsive";
 import landing1stImage from "../../public/imgs/landing1stImage.jpg";
 import landing2ndImage from "../../public/imgs/landing2ndImage.jpg";
 import landing3rdImage from "../../public/imgs/landing3rdImage.jpg";
@@ -17,6 +18,8 @@ import {
 } from "./Fullpage.style";
 
 const Fullpage = () => {
+  const isWideScreen = useMediaQuery({ maxWidth: 1370 });
+  const isTextScreen = useMediaQuery({ maxWidth: 767 });
   let options = {
     anchors: ["sectionOne", "sectionTwo", "sectionThree", "sectionFour"],
   };
@@ -27,12 +30,19 @@ const Fullpage = () => {
         <Section>
           <LandingTextWrapper>
             <LandingSlideWrapper noGap={true}>
-              <HeaderText>주권자 국민의 정면돌파 직접정치</HeaderText>
-              <HeaderText>국민주권당 창당을 시작합니다!</HeaderText>
+              <HeaderText mediaQuery={isTextScreen}>
+                주권자 국민의 정면돌파 직접정치
+              </HeaderText>
+              <HeaderText mediaQuery={isTextScreen}>
+                국민주권당 창당을 시작합니다!
+              </HeaderText>
               {/* <ContentText>주권자 국민의 정면돌파 직접정치</ContentText> */}
               {/* <ContentText>국민주권당 창당을 시작합니다!</ContentText> */}
 
-              <RoutingButton href={"/invite-proposer"}>
+              <RoutingButton
+                mediaQuery={isTextScreen}
+                href={"/invite-proposer"}
+              >
                 (가칭) 국민주권당 발기인 참여
               </RoutingButton>
             </LandingSlideWrapper>
@@ -42,13 +52,17 @@ const Fullpage = () => {
           </CoverWrapper>
         </Section>
         <Section>
-          <FlexLayout>
-            <CoverWrapper props="55%" linearStyle={true}>
+          <FlexLayout mediaQuery={isWideScreen}>
+            <CoverWrapper
+              mediaQuery={isWideScreen}
+              props="55%"
+              linearStyle={true}
+            >
               <CoverImage src={landing4thImage} alt="landing" />
             </CoverWrapper>
-            <LandingRightTextWrapper>
+            <LandingRightTextWrapper mediaQuery={isWideScreen}>
               <LandingSlideWrapper>
-                <HeaderText color="#009d8d" fontSize="3.3vw">
+                <HeaderText color="#009d8d" fontSize="3.5rem">
                   국민주권 철저히 실현!
                 </HeaderText>
                 <ContentText>
@@ -72,13 +86,17 @@ const Fullpage = () => {
           </FlexLayout>
         </Section>
         <Section>
-          <FlexLayout>
-            <CoverWrapper props="55%" linearStyle={true}>
+          <FlexLayout mediaQuery={isWideScreen}>
+            <CoverWrapper
+              mediaQuery={isWideScreen}
+              props="55%"
+              linearStyle={true}
+            >
               <CoverImage src={landing2ndImage} alt="landing" />
             </CoverWrapper>
-            <LandingRightTextWrapper>
+            <LandingRightTextWrapper mediaQuery={isWideScreen}>
               <LandingSlideWrapper>
-                <HeaderText color="#009d8d" fontSize="3.3vw">
+                <HeaderText color="#009d8d" fontSize="3.5rem">
                   윤석열 퇴진, 탄핵!
                 </HeaderText>
                 <ContentText>
@@ -98,13 +116,17 @@ const Fullpage = () => {
           </FlexLayout>
         </Section>
         <Section>
-          <FlexLayout>
-            <CoverWrapper props="55%" linearStyle={true}>
+          <FlexLayout mediaQuery={isWideScreen}>
+            <CoverWrapper
+              mediaQuery={isWideScreen}
+              props="55%"
+              linearStyle={true}
+            >
               <CoverImage src={landing3rdImage} alt="landing" />
             </CoverWrapper>
-            <LandingRightTextWrapper>
+            <LandingRightTextWrapper mediaQuery={isWideScreen}>
               <LandingSlideWrapper>
-                <HeaderText color="#009d8d" fontSize="3.3vw">
+                <HeaderText color="#009d8d" fontSize="3.5rem">
                   당원 직접민주주의
                 </HeaderText>
                 <ContentText>

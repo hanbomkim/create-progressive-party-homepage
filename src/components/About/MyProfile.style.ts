@@ -27,16 +27,16 @@ export const ProfileTextContainer = styled.div`
   display: flex;
   flex-direction: column;
   /* width: 400px; */
-  gap: 15px;
+  gap: 2rem;
   /* padding: 24px; */
 
   span {
-    font-size: 1.7em;
+    font-size: 1.7rem;
     font-weight: 700;
   }
 
   p {
-    font-size: 1.4em;
+    font-size: 1.4rem;
     font-weight: 400;
     opacity: 0.7;
   }

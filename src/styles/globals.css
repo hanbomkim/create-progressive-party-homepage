@@ -8,8 +8,34 @@ body {
   font-family: "Pretendard", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   scroll-behavior: smooth;
-  font-size: 5vw;
-  /* font-size: 2vh; */
+}
+/* 기본 font-size 설정 */
+html {
+  font-size: 16px;
+}
+
+@media (max-width: 499px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 767px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 18px;
+  }
 }
 
 body,
@@ -148,7 +174,6 @@ select:-moz-focusring {
 html,
 body {
   height: 100%;
-  font-size: 14px;
   line-height: 0;
 }
 body {
@@ -159,8 +184,7 @@ body {
   background: var(--bg);
 }
 * {
-  font-size: inherit;
-  line-height: 1.57em;
+  line-height: 4rem;
   color: var(--text-base);
   box-sizing: border-box;
 }

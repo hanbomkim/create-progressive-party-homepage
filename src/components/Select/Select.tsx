@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-import { ArrowIcon } from "@/styles/svg/Arrow";
 import { FlexLayout } from "../Fullpage.style";
 import {
   Option,
@@ -42,7 +41,7 @@ const Select = (props: SelectProps) => {
         <ToggleBtn onClick={() => setIsToggle(!isToggle)}>
           {value.label}
         </ToggleBtn>
-        <ArrowIcon />
+        {/* <ArrowIcon /> */}
       </FlexLayout>
       <Selectbox hide={!isToggle}>
         {options.map((item) => (

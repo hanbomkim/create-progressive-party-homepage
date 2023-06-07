@@ -7,7 +7,7 @@ export const ButtonRoot = styled.button`
   justify-content: center;
   box-sizing: border-box;
   min-width: 64px;
-  font-size: 16px;
+  font-size: 1rem;
   width: 100%;
   border: none;
   outline: none;

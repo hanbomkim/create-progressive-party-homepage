@@ -9,9 +9,12 @@ export const SelectboxWrapper = styled.section`
 export const ToggleBtn = styled.button`
   text-align: inherit;
   border: 1px solid #e2e5ed;
-  width: 100%;
   padding: 8px 12px;
   border-radius: 6px;
+  width: 100%;
+  height: 3.5rem;
+  font-size: 1.2rem;
+  line-height: 0.5;
 
   &:focus {
     border-color: var(--outline);
@@ -45,16 +48,20 @@ export const Selectbox = styled.ul<{
   }
 `;
 export const OptionWrap = styled.li`
-  padding: 8px 12px;
+  padding: 0px 12px;
   background-color: #fff;
   width: 100%;
   text-align: inherit;
+  height: 3.5rem;
   &:hover {
     transition: color 0.5s, border 0.5s, background-color 0.5s ease-in-out;
     background-color: #f4feff;
   }
 `;
 export const Option = styled.button`
+  height: 3.5rem;
+  font-size: 1.2rem;
+  /* line-height: 0.5; */
   width: 100%;
   text-align: inherit;
   &:hover {

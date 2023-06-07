@@ -15,5 +15,5 @@ export const FooterUnderline = styled.div`
 
 export const Copyright = styled.div`
   color: var(--text-base-90);
-  font-size: 1.3vw;
+  font-size: 1.3rem;
 `;

@@ -5,8 +5,8 @@ export const CheckIcon = () => {
       fill="currentColor"
       stroke-width="0"
       viewBox="0 0 35 24"
-      height="1em"
-      width="2em"
+      height="2rem"
+      width="2rem"
       xmlns="http://www.w3.org/2000/svg"
     >
       <polyline

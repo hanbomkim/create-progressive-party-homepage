@@ -8,24 +8,26 @@ export const ConsultationRequestRoot = styled.section`
 export const SignatureWrapper = styled.div`
   border: 1px solid #e2e5ed;
   border-radius: 6px;
-  margin-bottom: 2em;
+  margin-bottom: 2rem;
+  height: 30vh;
   .sigCanvas {
     width: 100%;
+    height: 80%;
   }
 `;
 export const ConsultationRequestForm = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 4em;
-  gap: 40px;
+  padding: 4rem;
+  gap: 4rem;
   width: 100%;
   margin: 0 auto;
 `;
 export const UseAgreementWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 6em 0;
-  gap: 40px;
+  padding: 6rem 0;
+  gap: 4rem;
   width: 100%;
   margin: 0 auto;
 `;
@@ -34,8 +36,8 @@ export const UseAgreementHead = styled.div`
   align-items: center;
   border-bottom: 1px solid #e2e5ed;
   p {
-    padding-left: 1em;
-    font-size: 1.3em;
+    padding-left: 1rem;
+    font-size: 1.3rem;
   }
   cursor: pointer;
 `;
@@ -44,13 +46,13 @@ export const UseAgreementContent = styled.div<{
 }>`
   display: ${({ open }) => (open ? "block" : "none")};
   p {
-    padding-left: 1em;
-    font-size: 1.3em;
+    padding-left: 1rem;
+    font-size: 1.3rem;
   }
 `;
 
 export const Title = styled.div`
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: bold;
   margin-bottom: 16px;
 `;
@@ -84,8 +86,8 @@ export const CheckboxContainer = styled.div`
     display: none;
   }
   .acc-check {
-    width: 1.3em;
-    height: 1.3em;
+    width: 1.3rem;
+    height: 1.3rem;
     background-color: #fff;
     border: 2px solid #e2e5ed;
     border-radius: 4px;
@@ -104,7 +106,7 @@ export const LabelText = styled.div<{
   required?: boolean;
 }>`
   display: flex;
-  font-size: 1.3em;
+  font-size: 1.3rem;
   width: 30%;
   /* margin-bottom: 8px; */
 
@@ -119,15 +121,16 @@ export const RowWrap = styled.div`
 `;
 export const InputWrap = styled.div`
   width: 100%;
-  margin-right: 5px;
+  height: 3.5rem;
+  line-height: 0;
 `;
 export const NotiText = styled.p`
-  padding: 5px;
-  font-size: 1.1em;
+  padding: 0.5rem;
+  font-size: 1.1rem;
   color: #ed4949;
 `;
 export const RequiredNotiText = styled.p`
-  font-size: 1.3em;
+  font-size: 1.3rem;
   color: red;
 `;
 
@@ -137,9 +140,9 @@ export const AgreeCheckbox = styled.label<{
   display: flex;
   align-items: center;
   justify-content: ${({ all }) => (all ? "center" : "none")};
-  line-height: 1.2;
+  line-height: 2.2;
   margin: 8px 0;
-  font-size: 1.3em;
+  font-size: 1.3rem;
 
   input {
     margin: 0 4px;
