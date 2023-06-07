@@ -49,8 +49,8 @@ export const CheckboxContainer = styled.div`
     display: none;
   }
   .acc-check {
-    width: 18px;
-    height: 18px;
+    width: 1.3em;
+    height: 1.3em;
     background-color: #fff;
     border: 2px solid #e2e5ed;
     border-radius: 4px;
@@ -88,7 +88,7 @@ export const InputWrap = styled.div`
 `;
 export const NotiText = styled.p`
   padding: 5px;
-  font-size: 13px;
+  font-size: 1.1em;
   color: #ed4949;
 `;
 export const RequiredNotiText = styled.p`
@@ -104,6 +104,7 @@ export const AgreeCheckbox = styled.label<{
   justify-content: ${({ all }) => (all ? "center" : "none")};
   line-height: 1.2;
   margin: 8px 0;
+  font-size: 1.3em;
 
   input {
     margin: 0 4px;

@@ -275,7 +275,7 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
                   <Button
                     style={{
                       width: "25%",
-                      height: "43px",
+                      height: "3em",
                     }}
                     onClick={() => setIsOpen(!isOpen)}
                   >

@@ -5,7 +5,7 @@ export const InputRoot = styled.input`
   margin: 0;
   padding: 8px 12px;
   color: rgba(0, 0, 0, 0.88);
-  font-size: 16px;
+  font-size: 1.3em;
   line-height: 1.5714285714285714;
   list-style: none;
   font-family: inherit;
@@ -34,7 +34,7 @@ export const InputRoot = styled.input`
   }
 
   &:placeholder-shown {
-    font-size: 16px;
+    font-size: 1.3em;
     text-overflow: ellipsis;
   }
 `;
