@@ -80,8 +80,8 @@ export const RoutingButton = styled(Link)`
   border-radius: 6px;
   width: fit-content;
   font-weight: 700;
-  padding: 1.1em;
-  font-size: 0.8vw;
+  padding: 0.7em;
+  font-size: 1.2vw;
   &:hover {
     background-color: #04c3af8a;
   }

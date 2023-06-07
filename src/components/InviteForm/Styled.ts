@@ -69,7 +69,7 @@ export const LabelText = styled.div<{
   required?: boolean;
 }>`
   display: flex;
-  font-size: 16px;
+  font-size: 1.3em;
   width: 30%;
   /* margin-bottom: 8px; */
 
@@ -92,7 +92,7 @@ export const NotiText = styled.p`
   color: #ed4949;
 `;
 export const RequiredNotiText = styled.p`
-  font-size: 16px;
+  font-size: 1.3em;
   color: red;
 `;
 

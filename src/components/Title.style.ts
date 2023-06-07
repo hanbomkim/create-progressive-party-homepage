@@ -9,12 +9,12 @@ export const TitleContainer = styled.div<{
   justify-content: center;
 
   h2 {
-    font-size: 30px;
+    font-size: 3.5em;
     font-weight: 600;
   }
 
   p {
-    font-size: 18px;
+    font-size: 1.8em;
     color: var(--text-base-90);
   }
 `;
