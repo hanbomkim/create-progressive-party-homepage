@@ -13,6 +13,33 @@ export const ConsultationRequestForm = styled.div`
   width: 100%;
   margin: 0 auto;
 `;
+export const UseAgreementWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 6em 0;
+  gap: 40px;
+  width: 100%;
+  margin: 0 auto;
+`;
+export const UseAgreementHead = styled.div`
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e2e5ed;
+  p {
+    padding-left: 1em;
+    font-size: 1.3em;
+  }
+  cursor: pointer;
+`;
+export const UseAgreementContent = styled.div<{
+  open?: boolean;
+}>`
+  display: ${({ open }) => (open ? "block" : "none")};
+  p {
+    padding-left: 1em;
+    font-size: 1.3em;
+  }
+`;
 
 export const Title = styled.div`
   font-size: 18px;

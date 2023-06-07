@@ -2,7 +2,7 @@ export const ArrowIcon = () => {
   return (
     <svg
       stroke="currentColor"
-      fill="rgb(226, 229, 237)"
+      fill="#ccc"
       stroke-width="0"
       viewBox="0 0 512 512"
       height="3em"
