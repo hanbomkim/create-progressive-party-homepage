@@ -10,6 +10,7 @@ import { ArrowIcon } from "@/styles/svg/Arrow";
 import { FormCheckIcon } from "@/styles/svg/Check";
 import { format } from "date-fns";
 import { ko } from "date-fns/locale";
+import { useRouter } from "next/router";
 import React, { ForwardedRef, useState } from "react";
 import { default as SignatureCanvas } from "react-signature-canvas";
 import ErrorInput from "../Input/ErrorInput";
@@ -45,6 +46,7 @@ const genderOptions = [
 ];
 
 const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
+  const router = useRouter();
   const {
     valueRef: usernameValueRef,
     ref: usernameInputRef,
@@ -137,7 +139,15 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
       address: addressNumValue + addressDetailValueRef.current,
       signature: padRef.current?.getTrimmedCanvas().toDataURL("image/png"),
     };
-    downloadForm(sendData);
+    const isSubmit = downloadForm(sendData);
+    if (isSubmit) {
+      alert(
+        "발기인 동의서가 정상적으로 제출되었습니다.\n국민주권당의 발기인이 되어주셔서 감사합니다."
+      );
+      router.push("/"); // 랜딩 페이지의 경로로 수정
+    } else {
+      alert("발기인 동의서 제출에 실패하였습니다.\n다시 시도해 주세요.");
+    }
   };
 
   const handleAddressInput = (e) => {

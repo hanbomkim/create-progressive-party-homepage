@@ -301,7 +301,7 @@ export const downloadForm = (data: downloadProps) => {
   worksheet.getColumn(4).width = 20;
   worksheet.getColumn(5).width = 20;
   worksheet.getColumn(6).width = 20;
-  workbook.xlsx.writeBuffer().then((buffer) => {
+  return workbook.xlsx.writeBuffer().then((buffer) => {
     const formData = new FormData();
 
     // Uint8Array 형식의 버퍼 데이터를 Base64로 변환하는 함수
@@ -342,7 +342,7 @@ export const downloadForm = (data: downloadProps) => {
     formData.append("signatureBase64", base64);
     formData.append("signatureHash", hashData);
 
-    fetch(
+    return fetch(
       "https://script.google.com/macros/s/AKfycbwZBYpx1YkQGBjjg-WV7dggd4TvwcsWMxCKtmPGNP0aDHgiTz_NESN8qM4swKu96Ibk1A/exec",
       {
         method: "POST",
@@ -351,14 +351,15 @@ export const downloadForm = (data: downloadProps) => {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-        // alert(
-        //   "발기인 동의서가 정상적으로 제출되었습니다.\n국민주권당의 발기인이 되어주셔서 감사합니다."
-        // );
-        // window.location.href = "/about";
+        if (data.result === "success") {
+          return true;
+        } else {
+          return false;
+        }
       })
       .catch((error) => {
         console.error("Error:", error);
+        return false;
       });
   });
 };
