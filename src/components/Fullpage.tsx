@@ -30,17 +30,17 @@ const Fullpage = () => {
         <Section>
           <LandingTextWrapper>
             <LandingSlideWrapper noGap={true}>
-              <HeaderText mediaQuery={isTextScreen}>
+              <HeaderText mediaquery={isTextScreen}>
                 주권자 국민의 정면돌파 직접정치
               </HeaderText>
-              <HeaderText mediaQuery={isTextScreen}>
+              <HeaderText mediaquery={isTextScreen}>
                 국민주권당 창당을 시작합니다!
               </HeaderText>
               {/* <ContentText>주권자 국민의 정면돌파 직접정치</ContentText> */}
               {/* <ContentText>국민주권당 창당을 시작합니다!</ContentText> */}
 
               <RoutingButton
-                mediaQuery={isTextScreen}
+                mediaquery={isTextScreen.toString()}
                 href={"/invite-proposer"}
               >
                 (가칭) 국민주권당 발기인 참여
@@ -52,15 +52,15 @@ const Fullpage = () => {
           </CoverWrapper>
         </Section>
         <Section>
-          <FlexLayout mediaQuery={isWideScreen}>
+          <FlexLayout mediaquery={isWideScreen}>
             <CoverWrapper
-              mediaQuery={isWideScreen}
+              mediaquery={isWideScreen}
               props="55%"
               linearStyle={true}
             >
               <CoverImage src={landing4thImage} alt="landing" />
             </CoverWrapper>
-            <LandingRightTextWrapper mediaQuery={isWideScreen}>
+            <LandingRightTextWrapper mediaquery={isWideScreen}>
               <LandingSlideWrapper>
                 <HeaderText color="#009d8d" fontSize="3.5rem">
                   국민주권 철저히 실현!
@@ -86,15 +86,15 @@ const Fullpage = () => {
           </FlexLayout>
         </Section>
         <Section>
-          <FlexLayout mediaQuery={isWideScreen}>
+          <FlexLayout mediaquery={isWideScreen}>
             <CoverWrapper
-              mediaQuery={isWideScreen}
+              mediaquery={isWideScreen}
               props="55%"
               linearStyle={true}
             >
               <CoverImage src={landing2ndImage} alt="landing" />
             </CoverWrapper>
-            <LandingRightTextWrapper mediaQuery={isWideScreen}>
+            <LandingRightTextWrapper mediaquery={isWideScreen}>
               <LandingSlideWrapper>
                 <HeaderText color="#009d8d" fontSize="3.5rem">
                   윤석열 퇴진, 탄핵!
@@ -116,15 +116,15 @@ const Fullpage = () => {
           </FlexLayout>
         </Section>
         <Section>
-          <FlexLayout mediaQuery={isWideScreen}>
+          <FlexLayout mediaquery={isWideScreen}>
             <CoverWrapper
-              mediaQuery={isWideScreen}
+              mediaquery={isWideScreen}
               props="55%"
               linearStyle={true}
             >
               <CoverImage src={landing3rdImage} alt="landing" />
             </CoverWrapper>
-            <LandingRightTextWrapper mediaQuery={isWideScreen}>
+            <LandingRightTextWrapper mediaquery={isWideScreen}>
               <LandingSlideWrapper>
                 <HeaderText color="#009d8d" fontSize="3.5rem">
                   당원 직접민주주의

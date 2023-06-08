@@ -3,7 +3,7 @@ export const QuoteStartIcon = () => {
     <svg
       stroke="currentColor"
       fill="#e2e5ed"
-      stroke-width="0"
+      strokeWidth="0"
       viewBox="0 0 24 40"
       height="5rem"
       width="3rem"
@@ -18,7 +18,7 @@ export const QuoteEndIcon = () => {
     <svg
       stroke="currentColor"
       fill="#e2e5ed"
-      stroke-width="0"
+      strokeWidth="0"
       viewBox="0 0 24 1"
       height="8rem"
       width="3rem"

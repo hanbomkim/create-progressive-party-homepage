@@ -3,7 +3,7 @@ export const ArrowIcon = () => {
     <svg
       stroke="currentColor"
       fill="#ccc"
-      stroke-width="0"
+      strokeWidth="0"
       viewBox="0 0 512 512"
       height="3rem"
       width="1.2rem"

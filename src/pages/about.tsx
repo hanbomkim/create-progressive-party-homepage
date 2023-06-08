@@ -17,7 +17,12 @@ export default function About() {
         </Pc>
         <QuoteEndIcon />
       </TitleContainer>
-      <MyProfile />
+      <Mobile>
+        <MyProfile />
+      </Mobile>
+      <Pc>
+        <MyProfile />
+      </Pc>
     </Container>
   );
 }

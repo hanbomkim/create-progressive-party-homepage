@@ -5,7 +5,7 @@ import Link from "next/link";
 export const CoverWrapper = styled.div<{
   props?: string;
   linearStyle?: boolean;
-  mediaQuery?: boolean;
+  mediaquery?: boolean;
 }>`
   position: relative;
   height: 100vh;
@@ -36,11 +36,11 @@ export const LandingTextWrapper = styled.div`
 export const HeaderText = styled.h2<{
   color?: string;
   fontSize?: string;
-  mediaQuery?: boolean;
+  mediaquery?: boolean;
 }>`
   font-weight: 700;
-  font-size: ${({ fontSize, mediaQuery }) =>
-    fontSize ? fontSize : mediaQuery ? "1rem" : "3rem"};
+  font-size: ${({ fontSize, mediaquery }) =>
+    fontSize ? fontSize : mediaquery ? "1rem" : "3rem"};
   color: ${({ color }) => (color ? color : "#375251")};
   /* line-height: 2em; */
 `;
@@ -70,12 +70,13 @@ export const LandingSlideWrapper = styled.div<{
   animation: fadeInUp 1.2s ease-in-out;
 `;
 export const RoutingButton = styled(Link)<{
-  mediaQuery?: boolean;
+  mediaquery?: string;
 }>`
-  padding: ${({ mediaQuery }) =>
-    mediaQuery ? "0.5rem 1rem" : "0.8rem 1.5rem"};
-  font-size: ${({ mediaQuery }) => (mediaQuery ? "1.5rem" : "2rem")};
-  margin-top: ${({ mediaQuery }) => (mediaQuery ? "0.5rem" : "1rem")};
+  padding: ${({ mediaquery }) =>
+    mediaquery === "true" ? "0.5rem 1rem" : "0.8rem 1.5rem"};
+  font-size: ${({ mediaquery }) => (mediaquery === "true" ? "1.5rem" : "2rem")};
+  margin-top: ${({ mediaquery }) =>
+    mediaquery === "true" ? "0.5rem" : "1rem"};
   background-color: var(--outline);
   cursor: pointer;
   color: white;
@@ -89,22 +90,22 @@ export const RoutingButton = styled(Link)<{
   }
 `;
 export const LandingRightTextWrapper = styled.div<{
-  mediaQuery?: boolean;
+  mediaquery?: boolean;
 }>`
-  width: ${({ mediaQuery }) => (mediaQuery ? "100%" : "45%")};
-  height: ${({ mediaQuery }) => (mediaQuery ? "100vh" : "auto")};
-  position: ${({ mediaQuery }) => (mediaQuery ? "absolute" : "inherit")};
-  text-align: ${({ mediaQuery }) => (mediaQuery ? "center" : "initial")};
+  width: ${({ mediaquery }) => (mediaquery ? "100%" : "45%")};
+  height: ${({ mediaquery }) => (mediaquery ? "100vh" : "auto")};
+  position: ${({ mediaquery }) => (mediaquery ? "absolute" : "inherit")};
+  text-align: ${({ mediaquery }) => (mediaquery ? "center" : "initial")};
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1rem;
 `;
 export const FlexLayout = styled.div<{
-  mediaQuery?: boolean;
+  mediaquery?: boolean;
 }>`
   display: flex;
   div {
-    width: ${({ mediaQuery }) => (mediaQuery ? "100%" : "55%")};
+    width: ${({ mediaquery }) => (mediaquery ? "100%" : "55%")};
   }
 `;

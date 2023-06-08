@@ -1,9 +1,5 @@
+import crypto from "crypto";
 import ExcelJS from "exceljs";
-import { useRouter } from "next/router";
-
-const excelFileType =
-  "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8";
-const excelFileExtension = ".xlsx";
 
 type downloadProps = {
   userName: string;
@@ -20,7 +16,6 @@ type downloadProps = {
 
 //거래정리-계좌
 export const downloadForm = (data: downloadProps) => {
-  const router = useRouter();
   const workbook = new ExcelJS.Workbook();
   const worksheet = workbook.addWorksheet();
   const {
@@ -318,37 +313,36 @@ export const downloadForm = (data: downloadProps) => {
       }
       return btoa(binary);
     };
+    const hashBase64Data = (base64Data: string) => {
+      // Base64 데이터 디코딩
+      const decodedData: Buffer = Buffer.from(base64Data, "base64");
+
+      // 해시 함수 선택 (여기서는 SHA-256 사용)
+      const hashFunction = crypto.createHash("sha256");
+
+      // 데이터를 해시 함수에 업데이트
+      hashFunction.update(decodedData);
+
+      // 해시 결과를 16진수 형식의 문자열로 반환
+      const hashedData: string = hashFunction.digest("hex");
+
+      return hashedData;
+    };
     // Uint8Array 형식의 버퍼 데이터 생성 예시
     const buf = new Uint8Array(buffer);
 
     // Uint8Array를 Base64로 변환
     const base64 = uint8ArrayToBase64(buf);
-    console.log(base64);
-    console.log(typeof base64);
+    const hashData = hashBase64Data(base64);
 
-    // const blob = new Blob([buffer], {
-    //   type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8",
-    // });
+    console.log(base64);
+    console.log(hashData);
 
     formData.append("name", userName);
     formData.append("phoneNumber", phoneNumber);
     formData.append("receiveAgreement", receiveAgreement);
-    formData.append("file", base64);
-
-    // console.log("[post with access_token]" + url + "/" + routeName);
-    // return axios
-    //   .post(
-    //     "https://script.google.com/macros/s/AKfycbzjHormEkG5mhaRWwmytgUCL1uJjwbYPZCS4cGhU1hLuSmnB0H0pPoSvPnauy5Kb9xr9w/exec",
-    //     formData
-    //   )
-    //   .then((response) => response)
-    //   .then((data) => {
-    //     console.log(data);
-    //     // 파일 전송 성공 후 처리할 작업
-    //   })
-    //   .catch((error) => {
-    //     console.error("Error:", error);
-    //   });
+    formData.append("signatureBase64", base64);
+    formData.append("signatureHash", hashData);
 
     fetch(
       "https://script.google.com/macros/s/AKfycbwLwwnidFNUXXYONnzvCltwITaCByOABYx51FKZ0FoZAQ-yrPtbb-rnpliVKOApvHB0Qg/exec",
@@ -359,10 +353,11 @@ export const downloadForm = (data: downloadProps) => {
     )
       .then((response) => response.json())
       .then((data) => {
-        alert(
-          "발기인 동의서가 정상적으로 제출되었습니다.\n국민주권당의 발기인이 되어주셔서 감사합니다."
-        );
-        router.push("/about");
+        console.log(data);
+        // alert(
+        //   "발기인 동의서가 정상적으로 제출되었습니다.\n국민주권당의 발기인이 되어주셔서 감사합니다."
+        // );
+        // window.location.href = "/about";
       })
       .catch((error) => {
         console.error("Error:", error);

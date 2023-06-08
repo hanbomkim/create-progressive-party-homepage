@@ -3,7 +3,7 @@ export const CheckIcon = () => {
     <svg
       stroke="currentColor"
       fill="currentColor"
-      stroke-width="0"
+      strokeWidth="0"
       viewBox="0 0 35 24"
       height="2rem"
       width="2rem"
@@ -12,7 +12,7 @@ export const CheckIcon = () => {
       <polyline
         fill="none"
         stroke="#000"
-        stroke-width="4"
+        strokeWidth="4"
         points="2 14 9 20 22 4"
       ></polyline>
     </svg>
