@@ -53,7 +53,7 @@ export const DateWrapper = styled.div`
     left: 0rem;
   }
   .react-datepicker__navigation {
-    height: 3rem;
+    height: 4.5rem;
     width: 2rem;
   }
   .react-datepicker__navigation--next {
@@ -131,7 +131,7 @@ export const DateWrapper = styled.div`
   .react-datepicker__month-container {
     background: #fff;
     width: 21rem;
-    height: 22.5rem;
+    height: 21rem;
     border: 1px solid #ccc;
     position: absolute;
     /* top: 1.5rem; */
@@ -142,7 +142,7 @@ export const DateWrapper = styled.div`
     color: var(--date);
   }
   .react-datepicker__month {
-    height: 16rem;
+    height: 14rem;
     background: #fff;
     padding: 0.3rem;
     margin: 0;

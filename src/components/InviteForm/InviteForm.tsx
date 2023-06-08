@@ -7,7 +7,7 @@ import { Input } from "@/components/Input";
 import { Select } from "@/components/Select";
 import { useInput } from "@/hooks/useInput";
 import { ArrowIcon } from "@/styles/svg/Arrow";
-import { CheckIcon } from "@/styles/svg/Check";
+import { FormCheckIcon } from "@/styles/svg/Check";
 import { format } from "date-fns";
 import { ko } from "date-fns/locale";
 import React, { ForwardedRef, useState } from "react";
@@ -227,7 +227,7 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
                       onChange={handleAgreeMessageChange}
                     />
                     <div className="acc-check">
-                      <CheckIcon />
+                      <FormCheckIcon />
                     </div>
                   </CheckboxContainer>
                   문자 수신에 동의합니다.
@@ -399,7 +399,7 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
                 onChange={handleUseAgreementChange}
               />
               <div className="acc-check">
-                <CheckIcon />
+                <FormCheckIcon />
               </div>
             </CheckboxContainer>
             모든 약관에 동의합니다.(필수)

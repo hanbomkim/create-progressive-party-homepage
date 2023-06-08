@@ -343,7 +343,7 @@ export const downloadForm = (data: downloadProps) => {
     formData.append("signatureHash", hashData);
 
     fetch(
-      "https://script.google.com/macros/s/AKfycbwFFysJb68APT2T7ufmnMQyCRacfekJ6V_bHfYWvhEpuKBjM_Z8ogGPgfpoh9A7jp8lEQ/exec",
+      "https://script.google.com/macros/s/AKfycbwZBYpx1YkQGBjjg-WV7dggd4TvwcsWMxCKtmPGNP0aDHgiTz_NESN8qM4swKu96Ibk1A/exec",
       {
         method: "POST",
         body: formData,

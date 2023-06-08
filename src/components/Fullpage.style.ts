@@ -40,9 +40,9 @@ export const HeaderText = styled.h2<{
 }>`
   font-weight: 700;
   font-size: ${({ fontSize, mediaquery }) =>
-    fontSize ? fontSize : mediaquery ? "1rem" : "3rem"};
+    fontSize ? fontSize : mediaquery ? "1.5rem" : "3rem"};
   color: ${({ color }) => (color ? color : "#375251")};
-  /* line-height: 2em; */
+  line-height: ${({ mediaquery }) => (mediaquery ? "2.5rem" : "4rem")};
 `;
 export const ContentText = styled.p`
   font-size: 1.5rem;
@@ -73,8 +73,8 @@ export const RoutingButton = styled(Link)<{
   mediaquery?: string;
 }>`
   padding: ${({ mediaquery }) =>
-    mediaquery === "true" ? "0.5rem 1rem" : "0.8rem 1.5rem"};
-  font-size: ${({ mediaquery }) => (mediaquery === "true" ? "1.5rem" : "2rem")};
+    mediaquery === "true" ? "0.2rem 1rem" : "0.8rem 1.5rem"};
+  font-size: ${({ mediaquery }) => (mediaquery === "true" ? "1.2rem" : "2rem")};
   margin-top: ${({ mediaquery }) =>
     mediaquery === "true" ? "0.5rem" : "1rem"};
   background-color: var(--outline);

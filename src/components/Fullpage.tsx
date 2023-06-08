@@ -1,4 +1,4 @@
-import { CheckIcon } from "@/styles/svg/Check";
+import { LandingCheckIcon } from "@/styles/svg/Check";
 import { Section, SectionsContainer } from "react-fullpage";
 import { useMediaQuery } from "react-responsive";
 import landing1stImage from "../../public/imgs/landing1stImage.jpg";
@@ -66,19 +66,19 @@ const Fullpage = () => {
                   국민주권 철저히 실현!
                 </HeaderText>
                 <ContentText>
-                  <CheckIcon />
+                  <LandingCheckIcon />
                   철저한 민주개혁
                 </ContentText>
                 <ContentText>
-                  <CheckIcon />
+                  <LandingCheckIcon />
                   함께 사는 공동체
                 </ContentText>
                 <ContentText>
-                  <CheckIcon />
+                  <LandingCheckIcon />
                   국익 우선 자주외교
                 </ContentText>
                 <ContentText>
-                  <CheckIcon />
+                  <LandingCheckIcon />
                   한반도 평화·번영·통일
                 </ContentText>
               </LandingSlideWrapper>
@@ -100,15 +100,15 @@ const Fullpage = () => {
                   윤석열 퇴진, 탄핵!
                 </HeaderText>
                 <ContentText>
-                  <CheckIcon />
+                  <LandingCheckIcon />
                   1호 공약 ‘윤석열 탄핵’
                 </ContentText>
                 <ContentText>
-                  <CheckIcon />
+                  <LandingCheckIcon />
                   국힘당·정치검찰·보수언론 기득권동맹 해체
                 </ContentText>
                 <ContentText>
-                  <CheckIcon />
+                  <LandingCheckIcon />
                   민주개혁 견인, 반국힘당 연대
                 </ContentText>
               </LandingSlideWrapper>
@@ -130,11 +130,11 @@ const Fullpage = () => {
                   당원 직접민주주의
                 </HeaderText>
                 <ContentText>
-                  <CheckIcon />
+                  <LandingCheckIcon />
                   공직 후보 100% 당원 투표
                 </ContentText>
                 <ContentText>
-                  <CheckIcon />
+                  <LandingCheckIcon />
                   당원 발의, 숙의로 정책 결정
                 </ContentText>
               </LandingSlideWrapper>
