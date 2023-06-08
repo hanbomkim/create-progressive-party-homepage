@@ -40,7 +40,7 @@ export const HeaderText = styled.h2<{
 }>`
   font-weight: 700;
   font-size: ${({ fontSize, mediaQuery }) =>
-    fontSize ? fontSize : mediaQuery ? "2rem" : "3rem"};
+    fontSize ? fontSize : mediaQuery ? "1rem" : "3rem"};
   color: ${({ color }) => (color ? color : "#375251")};
   /* line-height: 2em; */
 `;
