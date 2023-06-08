@@ -1,7 +1,5 @@
 import ExcelJS from "exceljs";
-// import { axios } from 'axios';
-
-// eslint-disable-next-line react-hooks/rules-of-hooks
+import { useRouter } from "next/router";
 
 const excelFileType =
   "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8";
@@ -22,6 +20,7 @@ type downloadProps = {
 
 //거래정리-계좌
 export const downloadForm = (data: downloadProps) => {
+  const router = useRouter();
   const workbook = new ExcelJS.Workbook();
   const worksheet = workbook.addWorksheet();
   const {
@@ -360,43 +359,13 @@ export const downloadForm = (data: downloadProps) => {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-        // 파일 전송 성공 후 처리할 작업
+        alert(
+          "발기인 동의서가 정상적으로 제출되었습니다.\n국민주권당의 발기인이 되어주셔서 감사합니다."
+        );
+        router.push("/about");
       })
       .catch((error) => {
         console.error("Error:", error);
       });
-    // // FileSaver.saveAs(blob, `${data.userName}.xlsx`);
   });
-
-  // workbook.xlsx
-  //   .writeBuffer()
-  //   .then((buffer) => {
-  //     // 버퍼를 FormData로 감싸기
-  //     const formData = new FormData();
-  //     const file = new File([buffer], `${data.userName} 발기인 동의서.xlsx`, {
-  //       type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8",
-  //     });
-  //     formData.append("file", file);
-
-  //     // POST 요청 보내기
-  //     axios
-  //       .post("URL", formData, {
-  //         headers: {
-  //           "Content-Type": "multipart/form-data",
-  //         },
-  //       })
-  //       .then((response) => {
-  //         console.log("파일 전송 완료");
-  //         // 성공적으로 전송된 경우의 처리 작업 수행
-  //       })
-  //       .catch((error) => {
-  //         console.error("파일 전송 실패:", error);
-  //         // 전송 실패 시의 처리 작업 수행
-  //       });
-  //   })
-  //   .catch((error) => {
-  //     console.error("엑셀 파일 생성 실패:", error);
-  //     // 파일 생성 실패 시의 처리 작업 수행
-  //   });
 };

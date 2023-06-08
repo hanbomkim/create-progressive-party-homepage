@@ -25,12 +25,16 @@ export const ConsultationRequestForm = styled.div`
 `;
 export const UseAgreementWrapper = styled.div`
   display: flex;
-  flex-direction: column;
-  padding: 6rem 0;
-  gap: 4rem;
-  width: 100%;
-  margin: 0 auto;
+  align-items: center;
+  justify-content: ${({ all }) => (all ? "center" : "none")};
+  line-height: 2.2;
+  margin: 8px 0;
+  font-size: 1.3rem;
 `;
+export const SignatureLabel = styled.label`
+  padding-bottom: 22rem;
+`;
+
 export const UseAgreementHead = styled.div`
   display: flex;
   align-items: center;
@@ -44,8 +48,9 @@ export const UseAgreementHead = styled.div`
 export const UseAgreementContent = styled.div<{
   open?: boolean;
 }>`
-  display: ${({ open }) => (open ? "block" : "none")};
+  display: ${({ open }) => (open ? "flex" : "none")};
   p {
+    display: ${({ open }) => (open ? "flex" : "none")};
     padding-left: 1rem;
     font-size: 1.3rem;
   }
@@ -127,6 +132,7 @@ export const InputWrap = styled.div`
 export const NotiText = styled.p`
   padding: 0.5rem;
   font-size: 1.1rem;
+  line-height: 1.5rem;
   color: #ed4949;
 `;
 export const RequiredNotiText = styled.p`

@@ -22,6 +22,7 @@ import {
   LabelText,
   RequiredNotiText,
   RowWrap,
+  SignatureLabel,
   UseAgreementContent,
   UseAgreementHead,
   UseAgreementWrapper,
@@ -257,7 +258,7 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
                   style={{
                     display: "flex",
                     justifyContent: "space-between",
-                    paddingBottom: "12px",
+                    paddingBottom: "0.8rem",
                   }}
                 >
                   <ErrorInput error={errorMessage}>
@@ -298,14 +299,14 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
               </InputWrap>
             </RowWrap>
           </label>
-          <label>
+          <SignatureLabel>
             <RowWrap>
               <LabelText required>서명</LabelText>
               <InputWrap>
                 <SignatureComponent padRef={padRef} />
               </InputWrap>
             </RowWrap>
-          </label>
+          </SignatureLabel>
           <UseAgreementWrapper>
             <UseAgreementHead
               onClick={() => setUseAgreementToggle(!useAgreementToggle)}
