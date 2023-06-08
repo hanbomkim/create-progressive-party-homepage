@@ -313,23 +313,21 @@ export const downloadForm = (data: downloadProps) => {
       }
       return btoa(binary);
     };
-    const hashBase64Data = (base64Data: string) => {
-      // Base64 데이터 디코딩
-      const decodedData: Buffer = Buffer.from(base64Data, "base64");
 
-      // 해시 함수 선택 (여기서는 SHA-256 사용)
-      const hashFunction = crypto.createHash("sha256");
-
-      // 데이터를 해시 함수에 업데이트
-      hashFunction.update(decodedData);
-
-      // 해시 결과를 16진수 형식의 문자열로 반환
-      const hashedData: string = hashFunction.digest("hex");
-
-      return hashedData;
-    };
     // Uint8Array 형식의 버퍼 데이터 생성 예시
     const buf = new Uint8Array(buffer);
+
+    const hashBase64Data = (base64Data: string) => {
+      // Base64 데이터를 Buffer로 변환
+      const buffer = Buffer.from(base64Data, "base64");
+
+      // SHA-256 해시 생성
+      const hash = crypto.createHash("sha256");
+      hash.update(buffer);
+
+      // 해시 결과를 16진수 문자열로 변환하여 반환
+      return hash.digest("hex");
+    };
 
     // Uint8Array를 Base64로 변환
     const base64 = uint8ArrayToBase64(buf);
@@ -345,7 +343,7 @@ export const downloadForm = (data: downloadProps) => {
     formData.append("signatureHash", hashData);
 
     fetch(
-      "https://script.google.com/macros/s/AKfycbwLwwnidFNUXXYONnzvCltwITaCByOABYx51FKZ0FoZAQ-yrPtbb-rnpliVKOApvHB0Qg/exec",
+      "https://script.google.com/macros/s/AKfycbwFFysJb68APT2T7ufmnMQyCRacfekJ6V_bHfYWvhEpuKBjM_Z8ogGPgfpoh9A7jp8lEQ/exec",
       {
         method: "POST",
         body: formData,

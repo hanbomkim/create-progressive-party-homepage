@@ -4,9 +4,10 @@ export const DateWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  .react-datepicker-wrapper {
-    height: 35px;
+  .react-datepicker {
+    display: block;
+    position: absolute;
+    top: 0;
   }
 
   .f__datepicker {
@@ -44,6 +45,9 @@ export const DateWrapper = styled.div`
       color: #999;
       cursor: default;
     }
+  }
+  .f__datepicker {
+    font-size: 1.1rem;
   }
   .react-datepicker__navigation--previous {
     left: 0rem;
@@ -110,7 +114,7 @@ export const DateWrapper = styled.div`
 
   //좌우 화살표 버튼 위치 수정
   .react-datepicker__navigation {
-    top: 1rem;
+    top: 0.5rem;
   }
 
   //좌우 화살표 스타일 변경
@@ -125,8 +129,9 @@ export const DateWrapper = styled.div`
     width: 7px;
   }
   .react-datepicker__month-container {
+    background: #fff;
     width: 21rem;
-    height: 20.7rem;
+    height: 22.5rem;
     border: 1px solid #ccc;
     position: absolute;
     /* top: 1.5rem; */
@@ -137,7 +142,7 @@ export const DateWrapper = styled.div`
     color: var(--date);
   }
   .react-datepicker__month {
-    height: 15rem;
+    height: 16rem;
     background: #fff;
     padding: 0.3rem;
     margin: 0;
@@ -166,8 +171,7 @@ export const DateWrapper = styled.div`
 
   //헤더 높이 변경
   .react-datepicker__header__dropdown.react-datepicker__header__dropdown--select {
-    height: 3.5rem;
-    padding: 0.2rem 0;
+    height: 4.5rem;
   }
 
   //헤더 월, 연도 션택 공통 수정

@@ -8,7 +8,7 @@ export const ConsultationRequestRoot = styled.section`
 export const SignatureWrapper = styled.div`
   border: 1px solid #e2e5ed;
   border-radius: 6px;
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
   height: 30vh;
   .sigCanvas {
     width: 100%;
@@ -25,8 +25,7 @@ export const ConsultationRequestForm = styled.div`
 `;
 export const UseAgreementWrapper = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: ${({ all }) => (all ? "center" : "none")};
+  flex-direction: column;
   line-height: 2.2;
   margin: 8px 0;
   font-size: 1.3rem;
@@ -48,9 +47,9 @@ export const UseAgreementHead = styled.div`
 export const UseAgreementContent = styled.div<{
   open?: boolean;
 }>`
-  display: ${({ open }) => (open ? "flex" : "none")};
+  display: ${({ open }) => (open ? "block" : "none")};
   p {
-    display: ${({ open }) => (open ? "flex" : "none")};
+    /* display: ${({ open }) => (open ? "block" : "none")}; */
     padding-left: 1rem;
     font-size: 1.3rem;
   }
@@ -138,6 +137,9 @@ export const NotiText = styled.p`
 export const RequiredNotiText = styled.p`
   font-size: 1.3rem;
   color: red;
+`;
+export const SigPreview = styled.div`
+  /* line-height: 0; */
 `;
 
 export const AgreeCheckbox = styled.label<{

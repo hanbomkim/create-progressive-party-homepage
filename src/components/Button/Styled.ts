@@ -8,6 +8,7 @@ export const ButtonRoot = styled.button`
   box-sizing: border-box;
   min-width: 64px;
   font-size: 1rem;
+  height: 3.5rem;
   width: 100%;
   border: none;
   outline: none;

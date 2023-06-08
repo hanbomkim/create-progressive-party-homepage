@@ -23,10 +23,20 @@ export const ModalWrapper = styled.div`
 `;
 
 export const ModalContainer = styled.div`
+  width: 26rem;
+  height: 28rem;
   border-radius: 4px;
   background-color: #fff;
   /* margin: 0 24px; */
   overflow: hidden;
+  .daum_popup
+    .focus_input
+    .focus_content
+    .mapping_auto_road
+    .mapping_auto_jibun
+    .use_suggest {
+    height: 26rem;
+  }
 `;
 
 export const ModalHeader = styled.div`
@@ -70,7 +80,10 @@ export const ModalCloseButton = styled.div`
 `;
 
 export const ModalBody = styled.div`
-  /* padding: 16px; */
+  height: 26rem;
+  .info_body {
+    height: 26rem;
+  }
 `;
 
 export const ModalFooter = styled.div`

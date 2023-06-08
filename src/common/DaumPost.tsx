@@ -39,13 +39,9 @@ const DaumPost = (props: DaumPostProps) => {
   };
 
   return (
-    <Modal
-      isOpen={isOpen}
-      onClose={() => setOpen(false)}
-      title="소득금액증명원 발급 방법 확인하기"
-    >
+    <Modal isOpen={isOpen} onClose={() => setOpen(false)} title="">
       <DaumPostcode
-        style={{ width: "700px", height: "450px" }}
+        style={{ width: "100%", height: "100%" }}
         autoClose
         onComplete={handleComplete}
       />
