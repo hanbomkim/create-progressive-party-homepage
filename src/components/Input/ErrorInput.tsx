@@ -14,7 +14,7 @@ const ErrorInput = ({ children, error }: ErrorInputProps) => {
     <InputWrap>
       {children}
       {error === childClassName && (
-        <FeedbackMessage>필수정보가 누락되었습니다.</FeedbackMessage>
+        <FeedbackMessage>필수입력사항입니다.</FeedbackMessage>
       )}
     </InputWrap>
   );

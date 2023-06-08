@@ -209,11 +209,11 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
             </RowWrap>
           </label>
           <label>
-            <RowWrap>
+            <RowWrap margin={"3rem"}>
               <LabelText required>전화번호</LabelText>
-              <InputWrap>
+              <InputWrap margin>
                 <ErrorInput error={errorMessage}>
-                  <InputWrap>
+                  <InputWrap margin error>
                     <Input
                       className="phone-number"
                       placeholder="'-' 제외하고 숫자만 입력"
@@ -263,7 +263,7 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
           <label>
             <RowWrap>
               <LabelText required>주소</LabelText>
-              <InputWrap>
+              <InputWrap margin={"7rem"}>
                 <div
                   style={{
                     display: "flex",

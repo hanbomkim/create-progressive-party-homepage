@@ -62,6 +62,7 @@ export const Title = styled.div`
 `;
 
 export const FeedbackMessage = styled.p`
+  line-height: 2rem;
   animation-name: "validation";
   color: red;
   animation-duration: 0.3s;
@@ -119,11 +120,22 @@ export const LabelText = styled.div<{
     color: ${({ required }) => (required ? "red" : "transparent")};
   }
 `;
-export const RowWrap = styled.div`
+export const RowWrap = styled.div<{
+  margin?: string;
+}>`
+  margin-bottom: ${({ margin }) => (margin ? margin : "0")};
   display: flex;
   align-items: baseline;
 `;
-export const InputWrap = styled.div`
+export const InputWrap = styled.div<{
+  margin?: string;
+  error?: boolean;
+}>`
+  margin-bottom: ${({ margin }) => (margin ? margin : "0")};
+  display: ${({ margin }) => (margin ? "flow-root" : "initial")};
+  flex-direction: ${({ margin }) => (margin ? "column" : "row")};
+  gap: ${({ error }) => (error ? "2rem" : "0")};
+  /* gap: 2rem; */
   width: 100%;
   height: 3.5rem;
   line-height: 0;
