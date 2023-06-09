@@ -27,7 +27,11 @@ export const SignatureComponent: React.FC<SignaturePadProps> = ({ padRef }) => {
     <>
       <SignatureWrapper>
         <NotiText>반드시 본인의 이름을 정자로 기재해주세요.</NotiText>
-        <SignaturePad ref={padRef} canvasProps={{ className: "sigCanvas" }} />
+        <SignaturePad
+          clearOnResize={false}
+          ref={padRef}
+          canvasProps={{ className: "sigCanvas" }}
+        />
       </SignatureWrapper>
       <SigPreview>
         <button onClick={trim}></button>
