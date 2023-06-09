@@ -111,11 +111,7 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
       phoneNumberInputRef.current?.focus();
       return;
     }
-    if (phoneNumberValueRef.current.length < 12) {
-      setErrorMessage("전화번호를 제대로 입력해주세요.");
-      phoneNumberInputRef.current?.focus();
-      return;
-    }
+
     if (!jobnameValueRef.current) {
       setErrorMessage(jobnameInputRef.current?.classList[2]);
       jobnameInputRef.current?.focus();
