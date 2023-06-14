@@ -55,6 +55,9 @@ export const DateWrapper = styled.div<{
   .react-datepicker__navigation {
     height: 4.5rem;
     top: -0.2rem;
+    @media (max-width: 768px) {
+      top: -0.5rem;
+    }
   }
   .react-datepicker__navigation--next {
     left: 19rem;
