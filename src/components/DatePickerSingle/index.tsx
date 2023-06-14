@@ -11,6 +11,7 @@ type DateProps = {
 
 const DatePickerSingle = (props: DateProps) => {
   const [date, setDate] = useState<Date | null>();
+  const [isSelect, setIsSelect] = useState<boolean>(false);
   const { setInitDate, setPickedDate } = props;
   useEffect(() => {
     setDate(setInitDate);
@@ -19,11 +20,12 @@ const DatePickerSingle = (props: DateProps) => {
 
   useEffect(() => {
     setPickedDate(date);
+    setIsSelect(!isSelect);
     /* eslint-disable */
   }, [date]);
 
   return (
-    <DateWrapper>
+    <DateWrapper isSelect={isSelect}>
       <DatePicker
         maxDate={new Date()}
         dateFormat={"yyyy.MM.dd"}
@@ -35,7 +37,7 @@ const DatePickerSingle = (props: DateProps) => {
             return date;
           })
         }
-        useShortMonthInDropdown
+        // useShortMonthInDropdown
         dropdownMode="select"
         className="f__datepicker"
         locale={ko}
