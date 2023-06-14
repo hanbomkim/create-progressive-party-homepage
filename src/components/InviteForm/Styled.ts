@@ -33,6 +33,13 @@ export const UseAgreementWrapper = styled.div`
 export const SignatureLabel = styled.label`
   padding-bottom: 6rem;
 `;
+export const NotificationText = styled.p`
+  font-size: 1.3rem;
+`;
+export const LayoutNoti = styled.div`
+  display: flex;
+  gap: 1rem;
+`;
 
 export const UseAgreementHead = styled.div`
   display: flex;

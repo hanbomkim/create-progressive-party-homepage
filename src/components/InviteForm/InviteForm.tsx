@@ -8,6 +8,7 @@ import { Select } from "@/components/Select";
 import { useInput } from "@/hooks/useInput";
 import { ArrowIcon } from "@/styles/svg/Arrow";
 import { FormCheckIcon } from "@/styles/svg/Check";
+import { NotiIcon } from "@/styles/svg/Noti";
 import { format } from "date-fns";
 import { ko } from "date-fns/locale";
 import { useRouter } from "next/router";
@@ -22,6 +23,8 @@ import {
   ConsultationRequestRoot,
   InputWrap,
   LabelText,
+  LayoutNoti,
+  NotificationText,
   RequiredNotiText,
   RowWrap,
   SignatureLabel,
@@ -427,6 +430,17 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
             </CheckboxContainer>
             모든 약관에 동의합니다. (필수)
           </AgreeCheckbox>
+          <label>
+            <LayoutNoti>
+              <NotiIcon />
+              <NotificationText>
+                발기인 참여 회비(1만 원 이상) 납부를 부탁드립니다. 소중한 회비는
+                발기인 대회 및 창당 활동에 사용할 계획입니다.
+                <br />
+                국민은행 817201-04-168778 촛불전진
+              </NotificationText>
+            </LayoutNoti>
+          </label>
           <Button type="submit" onClick={handleSubmit}>
             완료
           </Button>
