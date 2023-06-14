@@ -31,7 +31,7 @@ export const UseAgreementWrapper = styled.div`
   font-size: 1.3rem;
 `;
 export const SignatureLabel = styled.label`
-  padding-bottom: 22rem;
+  padding-bottom: 6rem;
 `;
 
 export const UseAgreementHead = styled.div`

@@ -23,15 +23,16 @@ export const CoverImage = styled(Image)`
 `;
 export const LandingTextWrapper = styled.div`
   position: absolute;
+  margin-top: 110px;
   display: flex;
   height: 11%;
   background: rgba(255, 255, 255, 0.4);
   justify-content: center;
   width: 100%;
+  align-items: center;
   flex-direction: column;
   z-index: 100;
   /* gap: 1rem; */
-  padding: 0 0 0 20%;
 `;
 export const HeaderText = styled.h2<{
   color?: string;
@@ -40,9 +41,9 @@ export const HeaderText = styled.h2<{
 }>`
   font-weight: 700;
   font-size: ${({ fontSize, mediaquery }) =>
-    fontSize ? fontSize : mediaquery ? "1.5rem" : "3rem"};
+    fontSize ? fontSize : mediaquery ? "2.5rem" : "2.5rem"};
   color: ${({ color }) => (color ? color : "#375251")};
-  line-height: ${({ mediaquery }) => (mediaquery ? "2.5rem" : "4rem")};
+  /* line-height: ${({ mediaquery }) => (mediaquery ? "4rem" : "4rem")}; */
 `;
 export const ContentText = styled.p`
   font-size: 1.5rem;
@@ -52,10 +53,9 @@ export const ContentText = styled.p`
 export const LandingSlideWrapper = styled.div<{
   noGap?: boolean;
 }>`
-  padding-top: calc(100% - 85rem);
   display: flex;
   flex-direction: column;
-  gap: ${({ noGap }) => (!noGap ? "1rem" : "0")};
+  gap: ${({ noGap }) => (!noGap ? "1rem" : "0.5rem")};
   /* gap: 1em; */
   @keyframes fadeInUp {
     from {
@@ -72,9 +72,9 @@ export const LandingSlideWrapper = styled.div<{
 export const RoutingButton = styled(Link)<{
   mediaquery?: string;
 }>`
-  padding: ${({ mediaquery }) =>
-    mediaquery === "true" ? "0.2rem 1rem" : "0.8rem 1.5rem"};
-  font-size: ${({ mediaquery }) => (mediaquery === "true" ? "1.2rem" : "2rem")};
+  padding: ${({ mediaquery }) => (mediaquery === "true" ? "1.5rem" : "1.5rem")};
+  font-size: ${({ mediaquery }) =>
+    mediaquery === "true" ? "1.5rem" : "1.5rem"};
   margin-top: ${({ mediaquery }) =>
     mediaquery === "true" ? "0.5rem" : "1rem"};
   background-color: var(--outline);
