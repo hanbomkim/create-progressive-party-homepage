@@ -12,9 +12,11 @@ export const ToggleBtn = styled.button`
   padding: 8px 12px;
   border-radius: 6px;
   width: 100%;
-  height: 3.5rem;
+  height: 70px;
   font-size: 1.2rem;
   line-height: 0.5;
+  font-size: 1.1rem;
+  color: #6a6767;
 
   &:focus {
     border-color: var(--outline);
@@ -43,16 +45,16 @@ export const Selectbox = styled.ul<{
   border-radius: 2px;
   position: absolute;
   z-index: 1;
+
   &:nth-child(1) {
     border-bottom: 1px solid #e2e5ed;
   }
 `;
 export const OptionWrap = styled.li`
-  padding: 0px 12px;
+  padding: 8px 12px;
   background-color: #fff;
   width: 100%;
   text-align: inherit;
-  height: 3.5rem;
   &:hover {
     transition: color 0.5s, border 0.5s, background-color 0.5s ease-in-out;
     background-color: #f4feff;
@@ -60,7 +62,8 @@ export const OptionWrap = styled.li`
 `;
 export const Option = styled.button`
   height: 3.5rem;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  color: #6a6767;
   /* line-height: 0.5; */
   width: 100%;
   text-align: inherit;

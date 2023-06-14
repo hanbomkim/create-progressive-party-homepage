@@ -26,7 +26,7 @@ export const SignatureComponent: React.FC<SignaturePadProps> = ({ padRef }) => {
   return (
     <>
       <SignatureWrapper>
-        <NotiText>반드시 본인의 이름을 정자로 기재해주세요.</NotiText>
+        <NotiText>반드시 본인의 이름을 정자로 기재해주세요. (필수)</NotiText>
         <SignaturePad
           clearOnResize={false}
           ref={padRef}

@@ -12,6 +12,7 @@ import { format } from "date-fns";
 import { ko } from "date-fns/locale";
 import { useRouter } from "next/router";
 import React, { ForwardedRef, useState } from "react";
+import { useMediaQuery } from "react-responsive";
 import { default as SignatureCanvas } from "react-signature-canvas";
 import ErrorInput from "../Input/ErrorInput";
 import {
@@ -36,6 +37,10 @@ type changPops = {
 
 const genderOptions = [
   {
+    label: `성별 (필수)`,
+    value: 0,
+  },
+  {
     label: "남",
     value: 1,
   },
@@ -46,6 +51,8 @@ const genderOptions = [
 ];
 
 const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
+  const isMobile = useMediaQuery({ maxWidth: 768 });
+
   const router = useRouter();
   const {
     valueRef: usernameValueRef,
@@ -94,11 +101,17 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
     ref: agreeMessageInputRef,
     onChange: handleAgreeMessageChange,
   } = useInput("checked", false);
-
+  const setMobilePlaceholder = (text: string) => {
+    return isMobile ? `${text} (필수)` : text;
+  };
   const handleSubmit = async () => {
     if (!usernameValueRef.current) {
       setErrorMessage(usernameInputRef.current?.classList[2]);
       usernameInputRef.current?.focus();
+      return;
+    }
+    if (genderSelect.value === 0) {
+      alert("성별을 선택해주세요.");
       return;
     }
     if (selectedDate === null) {
@@ -166,7 +179,7 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
               <ErrorInput error={errorMessage}>
                 <InputWrap>
                   <Input
-                    placeholder="이름"
+                    placeholder={setMobilePlaceholder("이름")}
                     className="username"
                     ref={usernameInputRef}
                     onChange={handleUsernameChange}
@@ -202,7 +215,7 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
               <InputWrap>
                 <Input
                   type="email"
-                  placeholder="email@email.co.kr"
+                  placeholder="이메일"
                   ref={emailInputRef}
                   onChange={handleEmailChange}
                 />
@@ -211,13 +224,13 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
           </label>
           <label>
             <RowWrap margin={"3rem"}>
-              <LabelText required>전화번호</LabelText>
+              <LabelText required>휴대폰번호</LabelText>
               <InputWrap margin>
                 <ErrorInput error={errorMessage}>
                   <InputWrap margin error>
                     <Input
                       className="phone-number"
-                      placeholder="'-' 제외하고 숫자만 입력"
+                      placeholder={setMobilePlaceholder("휴대폰번호")}
                       maxLength={13}
                       ref={phoneNumberInputRef}
                       onChange={(e) => {
@@ -253,7 +266,7 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
                 <InputWrap>
                   <Input
                     className="jobname"
-                    placeholder="직업"
+                    placeholder={setMobilePlaceholder("직업")}
                     ref={jobnameInputRef}
                     onChange={handleJobnameChange}
                   />
@@ -264,7 +277,7 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
           <label>
             <RowWrap>
               <LabelText required>주소</LabelText>
-              <InputWrap margin={"7rem"}>
+              <InputWrap>
                 <div
                   style={{
                     display: "flex",
@@ -276,7 +289,7 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
                     <InputWrap>
                       <Input
                         className="address-search"
-                        placeholder="주민등록상주소 입력"
+                        placeholder={setMobilePlaceholder("주민등록상주소")}
                         name="address"
                         onChange={handleAddressInput}
                         value={addressNumValue}
@@ -288,7 +301,6 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
                   <Button
                     style={{
                       width: "25%",
-                      height: "3.5em",
                       marginLeft: "0.5rem",
                     }}
                     onClick={() => setIsOpen(!isOpen)}
@@ -300,7 +312,7 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
                   <InputWrap>
                     <Input
                       className="address-detail"
-                      placeholder="상세주소 입력(필수)"
+                      placeholder="상세주소 입력 (필수)"
                       ref={addressDetailInputRef}
                       onChange={handleAddressDetailChange}
                       disabled={addressNumValue === null}
@@ -413,7 +425,7 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
                 <FormCheckIcon />
               </div>
             </CheckboxContainer>
-            모든 약관에 동의합니다.(필수)
+            모든 약관에 동의합니다. (필수)
           </AgreeCheckbox>
           <Button type="submit" onClick={handleSubmit}>
             완료

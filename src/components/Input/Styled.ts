@@ -5,14 +5,14 @@ export const InputRoot = styled.input`
   margin: 0;
   padding: 8px 12px;
   color: rgba(0, 0, 0, 0.88);
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   line-height: 1.5714285714285714;
   list-style: none;
   font-family: inherit;
   position: relative;
   display: inline-block;
   width: 100%;
-  height: 100%;
+  height: 70px;
   min-width: 0;
   background-color: #fff;
   background-image: none;
@@ -35,7 +35,6 @@ export const InputRoot = styled.input`
   }
 
   &:placeholder-shown {
-    font-size: 1.3rem;
     text-overflow: ellipsis;
   }
 `;

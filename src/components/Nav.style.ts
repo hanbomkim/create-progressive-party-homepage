@@ -1,30 +1,26 @@
 import styled from "@emotion/styled";
 
-export const NavContainer = styled.div<{
+export const NavContainer = styled.header<{
   fixed?: boolean;
 }>`
-  display: block;
-  position: ${({ fixed }) => (fixed ? "fixed" : "inherit")};
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
-  z-index: 100;
-  background-color: rgba(255, 255, 255, 0.2);
-
-  .container {
-    max-width: 1200px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-sizing: content-box;
-    margin: 0 auto;
-    padding: 0 22px;
-    height: 4rem;
-  }
+  background-color: #fff;
+  /* box-shadow: 0 0 3px #000; */
+  z-index: 20;
+`;
+export const NavWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 110px;
+  padding: 0 16px;
 `;
 
 export const NavTitle = styled.div`
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #375251;
 `;
@@ -36,6 +32,7 @@ export const MenuContainer = styled.div`
 export const Links = styled.div`
   ul {
     display: flex;
+    gap: 5rem;
 
     li {
       margin-left: 15px;

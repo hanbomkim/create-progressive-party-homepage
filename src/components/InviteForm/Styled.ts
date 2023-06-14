@@ -9,16 +9,16 @@ export const SignatureWrapper = styled.div`
   border: 1px solid #e2e5ed;
   border-radius: 6px;
   margin-bottom: 0.5rem;
-  height: 30vh;
+  height: 40vh;
   .sigCanvas {
     width: 100%;
-    height: 80%;
+    height: calc(100% - 2.5rem);
   }
 `;
 export const ConsultationRequestForm = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 4rem;
+  padding: 1rem;
   gap: 4rem;
   width: 100%;
   margin: 0 auto;
@@ -119,6 +119,9 @@ export const LabelText = styled.div<{
     content: "*";
     color: ${({ required }) => (required ? "red" : "transparent")};
   }
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 export const RowWrap = styled.div<{
   margin?: string;
@@ -137,10 +140,11 @@ export const InputWrap = styled.div<{
   gap: ${({ error }) => (error ? "2rem" : "0")};
   /* gap: 2rem; */
   width: 100%;
-  height: 3.5rem;
+  /* height: 3.5rem; */
   line-height: 0;
 `;
 export const NotiText = styled.p`
+  height: 2.5rem;
   padding: 0.5rem;
   font-size: 1.1rem;
   line-height: 1.5rem;
@@ -149,6 +153,9 @@ export const NotiText = styled.p`
 export const RequiredNotiText = styled.p`
   font-size: 1.3rem;
   color: red;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 export const SigPreview = styled.div`
   /* line-height: 0; */

@@ -9,24 +9,18 @@ body {
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   scroll-behavior: smooth;
 }
-/* 기본 font-size 설정 */
+
 html {
-  font-size: 16px;
+  font-size: 12px;
 }
 
-@media (max-width: 499px) {
-  html {
-    font-size: 12px;
-  }
-}
-
-@media (min-width: 500px) and (max-width: 767px) {
+@media (min-width: 640px) {
   html {
     font-size: 14px;
   }
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 768px) {
   html {
     font-size: 16px;
   }
@@ -171,10 +165,12 @@ select:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
 }
+p {
+  line-height: 1.57em;
+}
 html,
 body {
   height: 100%;
-  line-height: 0;
 }
 body {
   width: 100%;
@@ -184,7 +180,7 @@ body {
   background: var(--bg);
 }
 * {
-  line-height: 4rem;
+  /* line-height: 1.57em; */
   color: var(--text-base);
   box-sizing: border-box;
 }
@@ -192,12 +188,12 @@ body {
   outline: 0;
 }
 
-body {
+body[data-theme="light"] {
   --bg: #fff;
-  --outline: #70cdd8;
-  --date: #9de0e8;
+  --accent: #00d2c3;
+  --outline: #00d2c3;
   --shadow: #2c3e5015;
-  --text-base: #000;
+  --text-base: #002d32;
   --text-base-20: #2c3e5020;
   --text-base-40: #2c3e5040;
   --text-base-70: #2c3e5070;
@@ -212,4 +208,31 @@ body {
   --code-block: #eff2f6;
   --card-bg: #fff;
   --card-border: #ececf3;
+  --mdx-border: #2c3e5040;
+  --mdx-icon-color: #2c3e5070;
+  --mdx-icon-bg: #dfdfdf4d;
+}
+
+body[data-theme="dark"] {
+  --bg: #292929;
+  --accent: #00d2c3;
+  --shadow: #13161640;
+  --text-base: #dfdfdf;
+  --text-base-20: #dfdfdf20;
+  --text-base-40: #dfdfdf40;
+  --text-base-70: #dfdfdf70;
+  --text-base-90: #dfdfdf90;
+  --icon-color: #ffffff20;
+  --border-color: #ffffff16;
+  --hover-base: #232323;
+  --header-bg: #21212150;
+  --toggle-bg: #ffffff20;
+  --toggle-icon: var(--text-base-70);
+  --toggle-border: #eeeefb20;
+  --code-block: #232323;
+  --card-bg: #212121;
+  --card-border: var(--text-base-40);
+  --mdx-border: #dfe2e535;
+  --mdx-icon-color: #dfdfdf70;
+  --mdx-icon-bg: #eeeefb20;
 }

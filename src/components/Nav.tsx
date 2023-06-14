@@ -1,14 +1,21 @@
-import navlinks from "@/data/navlinks";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Links, MenuContainer, NavContainer, NavTitle } from "./Nav.style";
+import {
+  Links,
+  MenuContainer,
+  NavContainer,
+  NavTitle,
+  NavWrapper,
+} from "./Nav.style";
+
+import navlinks from "@/data/navlinks";
 
 export default function Nav() {
   const router = useRouter();
 
   return (
     <NavContainer>
-      <div className="container">
+      <NavWrapper>
         <Link href={"/"}>
           <NavTitle>국민주권당(추)</NavTitle>
         </Link>
@@ -28,7 +35,7 @@ export default function Nav() {
             </ul>
           </Links>
         </MenuContainer>
-      </div>
+      </NavWrapper>
     </NavContainer>
   );
 }

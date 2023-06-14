@@ -3,7 +3,8 @@ import styled from "@emotion/styled";
 export const TitleContainer = styled.div<{
   flex?: boolean;
 }>`
-  margin-bottom: 40px;
+  line-height: 6rem;
+  margin-bottom: 4rem;
   display: ${({ flex }) => (flex ? "flex" : "inherit")};
   text-align: center;
   justify-content: center;
