@@ -32,6 +32,7 @@ const DatePickerSingle = (props: DateProps) => {
         showMonthDropdown={true}
         showYearDropdown={true}
         selected={date}
+        placeholderText="생년월일 (필수)"
         onChange={(date: Date) =>
           setDate((oldDate) => {
             return date;
