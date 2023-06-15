@@ -41,7 +41,7 @@ const Fullpage = () => {
 
               <RoutingButton
                 mediaquery={isTextScreen.toString()}
-                href={"/invite-proposer"}
+                href={"/sign"}
               >
                 (가칭) 국민주권당 발기인 참여
               </RoutingButton>
