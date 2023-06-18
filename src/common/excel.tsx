@@ -6,7 +6,7 @@ type downloadProps = {
   birthDate: string;
   gender: string;
   toDay: string;
-  email: string;
+  // email: string;
   phoneNumber: string;
   receiveAgreement: string;
   jobName: string;
@@ -23,7 +23,7 @@ export const downloadForm = (data: downloadProps) => {
     birthDate,
     gender,
     toDay,
-    email,
+    // email,
     phoneNumber,
     jobName,
     address,

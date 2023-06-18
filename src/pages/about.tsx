@@ -8,12 +8,9 @@ export default function About() {
     <Container>
       <TitleContainer flex={true}>
         <QuoteStartIcon />
-
         <AboutHeader>(가칭) 국민주권당 창당 추진 선언문</AboutHeader>
-
         <QuoteEndIcon />
       </TitleContainer>
-
       <MyProfile />
     </Container>
   );

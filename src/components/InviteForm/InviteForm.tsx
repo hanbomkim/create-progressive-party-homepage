@@ -74,11 +74,11 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
     onChange: handleJobnameChange,
   } = useInput("value");
 
-  const {
-    valueRef: emailValueRef,
-    ref: emailInputRef,
-    onChange: handleEmailChange,
-  } = useInput("value");
+  // const {
+  //   valueRef: emailValueRef,
+  //   ref: emailInputRef,
+  //   onChange: handleEmailChange,
+  // } = useInput("value");
 
   const {
     valueRef: phoneNumberValueRef,
@@ -149,7 +149,7 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
       birthDate: format(selectedDate, "PPP", { locale: ko }),
       gender: genderSelect.label,
       toDay: format(new Date(), "PPP", { locale: ko }),
-      email: emailValueRef.current,
+      // email: emailValueRef.current,
       phoneNumber: phoneNumberValueRef.current,
       receiveAgreement: agreeMessageValueRef.current ? "동의" : "미동의",
       jobName: jobnameValueRef.current,
@@ -212,7 +212,7 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
               </InputWrap>
             </RowWrap>
           </label>
-          <label>
+          {/* <label>
             <RowWrap>
               <LabelText>이메일</LabelText>
               <InputWrap>
@@ -224,7 +224,7 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
                 />
               </InputWrap>
             </RowWrap>
-          </label>
+          </label> */}
           <label>
             <RowWrap margin={"3rem"}>
               <LabelText required>휴대폰번호</LabelText>
@@ -289,7 +289,7 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
                   }}
                 >
                   <ErrorInput error={errorMessage}>
-                    <InputWrap>
+                    <InputWrap onClick={() => setIsOpen(!isOpen)}>
                       <Input
                         className="address-search"
                         placeholder={setMobilePlaceholder("주민등록상주소")}

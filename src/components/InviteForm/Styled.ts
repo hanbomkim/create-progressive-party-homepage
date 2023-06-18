@@ -141,6 +141,7 @@ export const InputWrap = styled.div<{
   margin?: string;
   error?: boolean;
 }>`
+  cursor: pointer;
   margin-bottom: ${({ margin }) => (margin ? margin : "0")};
   display: ${({ margin }) => (margin ? "flow-root" : "initial")};
   flex-direction: ${({ margin }) => (margin ? "column" : "row")};
