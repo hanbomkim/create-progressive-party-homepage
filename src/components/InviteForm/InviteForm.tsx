@@ -96,11 +96,11 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
     ref: useAgreementInputRef,
     onChange: handleUseAgreementChange,
   } = useInput("checked", false);
-  const {
-    valueRef: agreeMessageValueRef,
-    ref: agreeMessageInputRef,
-    onChange: handleAgreeMessageChange,
-  } = useInput("checked", false);
+  // const {
+  //   valueRef: agreeMessageValueRef,
+  //   ref: agreeMessageInputRef,
+  //   onChange: handleAgreeMessageChange,
+  // } = useInput("checked", false);
   const setMobilePlaceholder = (text: string) => {
     return isMobile ? `${text} (필수)` : text;
   };
@@ -146,9 +146,8 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
       birthDate: format(selectedDate, "PPP", { locale: ko }),
       gender: genderSelect.label,
       toDay: format(new Date(), "PPP", { locale: ko }),
-      // email: emailValueRef.current,
       phoneNumber: phoneNumberValueRef.current,
-      receiveAgreement: agreeMessageValueRef.current ? "동의" : "미동의",
+      // receiveAgreement: agreeMessageValueRef.current ? "동의" : "미동의",
       jobName: jobnameValueRef.current,
       address: addressNumValue + addressDetailValueRef.current,
       signature: padRef.current?.getTrimmedCanvas().toDataURL("image/png"),
@@ -156,11 +155,11 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
     const isSubmit = downloadForm(sendData);
     if (isSubmit) {
       alert(
-        "발기인 동의서가 정상적으로 제출되었습니다.\n국민주권당의 발기인이 되어주셔서 감사합니다."
+        "당원 가입이 완료되었습니다.\n국민주권당의 당원이 되어주셔서 감사합니다."
       );
       router.push("/"); // 랜딩 페이지의 경로로 수정
     } else {
-      alert("발기인 동의서 제출에 실패하였습니다.\n다시 시도해 주세요.");
+      alert("당원 가입에 실패하였습니다.\n다시 시도해 주세요.");
     }
   };
 

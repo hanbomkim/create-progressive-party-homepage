@@ -8,7 +8,7 @@ type downloadProps = {
   toDay: string;
   // email: string;
   phoneNumber: string;
-  receiveAgreement: string;
+  // receiveAgreement: string;
   jobName: string;
   address: string;
   signature: string;
@@ -28,7 +28,7 @@ export const downloadForm = (data: downloadProps) => {
     jobName,
     address,
     signature,
-    receiveAgreement,
+    // receiveAgreement,
   } = data;
 
   // 스타일 생성
@@ -337,13 +337,16 @@ export const downloadForm = (data: downloadProps) => {
     console.log(hashData);
 
     formData.append("name", userName);
+    formData.append("gender", gender);
+    formData.append("birthDate", birthDate);
     formData.append("phoneNumber", phoneNumber);
-    formData.append("receiveAgreement", receiveAgreement);
+    formData.append("jobName", jobName);
+    formData.append("address", address);
     formData.append("signatureBase64", base64);
     formData.append("signatureHash", hashData);
 
     return fetch(
-      "https://script.google.com/macros/s/AKfycbwMTGfzU-ZmAKga4udhPk7RphKberEbVEfmmHx0Thh4Fxs4TbWpJDfvrxugcLSMtrKznQ/exec",
+      "https://script.google.com/macros/s/AKfycbwUA5vx7OEGEvAr2Z9nC2XZXrg7qRZVjl1gz94LqKWC0FaVBuAU9WGfEQRUME-aaaNmqg/exec",
       {
         method: "POST",
         body: formData,
