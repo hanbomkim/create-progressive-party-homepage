@@ -45,7 +45,7 @@ export const downloadForm = (data: downloadProps) => {
   };
 
   // Static
-  worksheet.getCell("A1").value = "발  기  인  동  의  서";
+  worksheet.getCell("A1").value = "국 민 주 권 당 가 입 서";
   worksheet.getCell("A1").style = headerStyle;
   worksheet.getCell("A1").border = {
     top: { style: "thin" },
@@ -118,7 +118,7 @@ export const downloadForm = (data: downloadProps) => {
     horizontal: "center",
   };
   worksheet.getCell("A34").value =
-    "본인은 국민주권당(가칭)창당준비위원회 발기인에 동의합니다.";
+    "본인은 국민주권당(가칭) 창당준비위원회에 가입합니다.";
   worksheet.getCell("A34").style = contentHeaderStyle;
   worksheet.getCell("A34").border = {
     left: { style: "thin" },
@@ -139,7 +139,7 @@ export const downloadForm = (data: downloadProps) => {
     horizontal: "center",
   };
   worksheet.getCell("A46").value = "성명";
-  worksheet.getCell("A52").value = "국민주권당(가칭)창당준비위원회 귀중";
+  worksheet.getCell("A52").value = "국민주권당(가칭) 창당준비위원회 귀중";
   worksheet.getCell("A52").style = contentHeaderStyle;
   worksheet.getCell("A52").border = {
     left: { style: "thin" },

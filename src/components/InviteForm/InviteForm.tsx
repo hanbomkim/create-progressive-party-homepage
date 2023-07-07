@@ -8,7 +8,6 @@ import { Select } from "@/components/Select";
 import { useInput } from "@/hooks/useInput";
 import { ArrowIcon } from "@/styles/svg/Arrow";
 import { FormCheckIcon } from "@/styles/svg/Check";
-import { NotiIcon } from "@/styles/svg/Noti";
 import { format } from "date-fns";
 import { ko } from "date-fns/locale";
 import { useRouter } from "next/router";
@@ -23,8 +22,6 @@ import {
   ConsultationRequestRoot,
   InputWrap,
   LabelText,
-  LayoutNoti,
-  NotificationText,
   RequiredNotiText,
   RowWrap,
   SignatureLabel,
@@ -226,26 +223,26 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
             </RowWrap>
           </label> */}
           <label>
-            <RowWrap margin={"3rem"}>
+            <RowWrap>
               <LabelText required>휴대폰번호</LabelText>
-              <InputWrap margin>
-                <ErrorInput error={errorMessage}>
-                  <InputWrap margin error>
-                    <Input
-                      className="phone-number"
-                      placeholder={setMobilePlaceholder("휴대폰번호")}
-                      maxLength={13}
-                      ref={phoneNumberInputRef}
-                      onChange={(e) => {
-                        e.currentTarget.value = e.currentTarget.value
-                          .replace(/[^0-9]/g, "")
-                          .replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`);
-                        handlePhoneNumberChange(e);
-                      }}
-                    />
-                  </InputWrap>
-                </ErrorInput>
-                <AgreeCheckbox>
+              {/* <InputWrap margin> */}
+              <ErrorInput error={errorMessage}>
+                <InputWrap>
+                  <Input
+                    className="phone-number"
+                    placeholder={setMobilePlaceholder("휴대폰번호")}
+                    maxLength={13}
+                    ref={phoneNumberInputRef}
+                    onChange={(e) => {
+                      e.currentTarget.value = e.currentTarget.value
+                        .replace(/[^0-9]/g, "")
+                        .replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`);
+                      handlePhoneNumberChange(e);
+                    }}
+                  />
+                </InputWrap>
+              </ErrorInput>
+              {/* <AgreeCheckbox>
                   <CheckboxContainer>
                     <input
                       className="acc-box"
@@ -258,8 +255,8 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
                     </div>
                   </CheckboxContainer>
                   문자 수신에 동의합니다.
-                </AgreeCheckbox>
-              </InputWrap>
+                </AgreeCheckbox> */}
+              {/* </InputWrap> */}
             </RowWrap>
           </label>
           <label>
@@ -430,7 +427,7 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
             </CheckboxContainer>
             모든 약관에 동의합니다. (필수)
           </AgreeCheckbox>
-          <label>
+          {/* <label>
             <LayoutNoti>
               <NotiIcon />
               <NotificationText>
@@ -440,7 +437,7 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
                 국민은행 817201-04-168778 촛불전진
               </NotificationText>
             </LayoutNoti>
-          </label>
+          </label> */}
           <Button type="submit" onClick={handleSubmit}>
             완료
           </Button>

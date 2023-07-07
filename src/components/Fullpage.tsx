@@ -43,7 +43,7 @@ const Fullpage = () => {
                 mediaquery={isTextScreen.toString()}
                 href={"/sign"}
               >
-                (가칭) 국민주권당 발기인 참여
+                (가칭) 국민주권당 창당 당원 가입
               </RoutingButton>
             </LandingSlideWrapper>
           </LandingTextWrapper>

@@ -16,8 +16,8 @@ export default function Nav() {
   return (
     <NavContainer>
       <NavWrapper>
-        <Link href={"/"}>
-          <NavTitle>국민주권당(추)</NavTitle>
+        <Link href={"http://jugwon.tistory.com/"} passHref>
+          <NavTitle>국민주권당(준)</NavTitle>
         </Link>
         <MenuContainer>
           <Links>

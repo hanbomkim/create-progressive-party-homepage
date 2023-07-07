@@ -1,6 +1,6 @@
 const navlinks: { title: string; link: string }[] = [
-  { title: "소개", link: "/about" },
-  { title: "창당 발기인 참여하기 ", link: "/sign" },
+  { title: "소개", link: "http://jugwon.tistory.com/" },
+  { title: "창당 당원 가입하기 ", link: "/member" },
 ];
 
 export default navlinks;

@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <FooterContainer>
       <FooterUnderline>
-        <Copyright>국민주권당(추)</Copyright>
+        <Copyright>국민주권당(준)</Copyright>
       </FooterUnderline>
     </FooterContainer>
   );
