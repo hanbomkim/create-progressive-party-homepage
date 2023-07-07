@@ -7,7 +7,7 @@ const Nav = dynamic(() => import("./Nav"), { ssr: false });
 export default function Container({ children }) {
   return (
     <Layout>
-      <Nav />
+      {/* <Nav /> */}
       <Main>
         <div className="contents">{children}</div>
       </Main>
