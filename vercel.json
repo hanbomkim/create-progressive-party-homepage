@@ -1,8 +1,8 @@
 {
   "redirects": [
     {
-      "source": "/sign",
-      "destination": "https://jugwon.kr/sign"
+      "source": "/member",
+      "destination": "https://jugwon.kr/member"
     }
   ]
 }
