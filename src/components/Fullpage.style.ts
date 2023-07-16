@@ -21,6 +21,13 @@ export const CoverImage = styled(Image)`
   left: 50%;
   transform: translate(-50%, -50%);
 `;
+
+export const FlexTemporary = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+`;
 export const LandingTextWrapper = styled.div`
   position: absolute;
   margin-top: 110px;
