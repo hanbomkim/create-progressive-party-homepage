@@ -157,7 +157,7 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
       alert(
         "당원 가입이 완료되었습니다.\n국민주권당의 당원이 되어주셔서 감사합니다."
       );
-      window.location.href = "https://jugwon.kr";
+      window.location.href = "http://jugwon.kr";
       // router.push("http://jugwon.tistory.com/"); // 랜딩 페이지의 경로로 수정
     } else {
       alert("당원 가입에 실패하였습니다.\n다시 시도해 주세요.");

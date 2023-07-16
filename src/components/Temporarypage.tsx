@@ -3,7 +3,7 @@ import { FlexTemporary } from "./Fullpage.style";
 
 const Temporarypage = () => {
   const routingPage = () => {
-    window.location.href = "https://jugwon.kr";
+    window.location.href = "http://jugwon.kr";
   };
 
   return (
