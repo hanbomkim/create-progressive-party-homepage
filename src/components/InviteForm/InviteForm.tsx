@@ -213,7 +213,9 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
                 /> */}
                 <Input
                   className="phone-number"
-                  placeholder={setMobilePlaceholder("생년월일8자리")}
+                  placeholder={setMobilePlaceholder(
+                    "생년월일 8자리(0000-00-00)"
+                  )}
                   maxLength={10}
                   ref={birthDateInputRef}
                   onChange={(e) => {
