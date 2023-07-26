@@ -35,7 +35,12 @@ export const SignatureComponent: React.FC<SignaturePadProps> = ({ padRef }) => {
       </SignatureWrapper>
       <SigPreview>
         <button onClick={trim}></button>
-        <Button onClick={clear}>다시 서명하기</Button>
+        <Button
+          onClick={clear}
+          style={{ height: "100px", fontSize: "1.5rem", fontWeight: "700" }}
+        >
+          다시 서명하기
+        </Button>
       </SigPreview>
     </>
   );

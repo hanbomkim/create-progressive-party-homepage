@@ -2,7 +2,6 @@ import DaumPost from "@/common/DaumPost";
 import { SignatureComponent } from "@/common/SignatureComponent";
 import { downloadForm } from "@/common/excel";
 import { Button } from "@/components/Button";
-import DatePickerSingle from "@/components/DatePickerSingle";
 import { Input } from "@/components/Input";
 import { Select } from "@/components/Select";
 import { useInput } from "@/hooks/useInput";
@@ -10,7 +9,6 @@ import { ArrowIcon } from "@/styles/svg/Arrow";
 import { FormCheckIcon } from "@/styles/svg/Check";
 import { format } from "date-fns";
 import { ko } from "date-fns/locale";
-import { useRouter } from "next/router";
 import React, { ForwardedRef, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import { default as SignatureCanvas } from "react-signature-canvas";
@@ -53,7 +51,6 @@ const genderOptions = [
 const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
-  const router = useRouter();
   const {
     valueRef: usernameValueRef,
     ref: usernameInputRef,
@@ -82,12 +79,16 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
     ref: phoneNumberInputRef,
     onChange: handlePhoneNumberChange,
   } = useInput("value");
+  const {
+    valueRef: birthDateValueRef,
+    ref: birthDateInputRef,
+    onChange: handleBirthDateChange,
+  } = useInput("value");
 
   const [addressNumValue, setAddressNumValue] = useState<string>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const padRef = React.useRef<SignatureCanvas>(null);
   const [errorMessage, setErrorMessage] = useState<string>("");
-  const [selectedDate, setSelectedDate] = useState<Date>(null);
   const [genderSelect, setGenderSelect] = useState<changPops>(genderOptions[0]);
   const [useAgreementToggle, setUseAgreementToggle] = useState<boolean>(false);
 
@@ -114,22 +115,23 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
       alert("성별을 선택해주세요.");
       return;
     }
-    if (selectedDate === null) {
-      alert("생년월일을 선택해주세요.");
+
+    if (!birthDateValueRef.current) {
+      setErrorMessage(birthDateInputRef.current?.classList[2]);
+      birthDateInputRef.current?.focus();
       return;
     }
-
+    if (birthDateValueRef.current.length !== 10) {
+      alert("생년월일을 다시 입력해주세요.");
+      birthDateInputRef.current?.focus();
+      return;
+    }
     if (!phoneNumberValueRef.current) {
       setErrorMessage(phoneNumberInputRef.current?.classList[2]);
       phoneNumberInputRef.current?.focus();
       return;
     }
 
-    if (!jobnameValueRef.current) {
-      setErrorMessage(jobnameInputRef.current?.classList[2]);
-      jobnameInputRef.current?.focus();
-      return;
-    }
     if (!addressDetailValueRef.current) {
       setErrorMessage(addressDetailInputRef.current?.classList[2]);
       addressDetailInputRef.current?.focus();
@@ -141,14 +143,17 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
       return;
     }
 
+    const birth = birthDateValueRef.current
+      .replace(/-/g, "")
+      .replace(/^(\d{4})(\d{2})(\d{2})$/, `$1년$2월$3일`);
     const sendData = {
       userName: usernameValueRef.current,
-      birthDate: format(selectedDate, "PPP", { locale: ko }),
+      birthDate: birth,
       gender: genderSelect.label,
       toDay: format(new Date(), "PPP", { locale: ko }),
       phoneNumber: phoneNumberValueRef.current,
       // receiveAgreement: agreeMessageValueRef.current ? "동의" : "미동의",
-      jobName: jobnameValueRef.current,
+      jobName: jobnameValueRef.current || "",
       address: addressNumValue + addressDetailValueRef.current,
       signature: padRef.current?.getTrimmedCanvas().toDataURL("image/png"),
     };
@@ -202,9 +207,21 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
             <RowWrap>
               <LabelText required>생년월일</LabelText>
               <InputWrap>
-                <DatePickerSingle
+                {/* <DatePickerSingle
                   setInitDate={selectedDate}
                   setPickedDate={setSelectedDate}
+                /> */}
+                <Input
+                  className="phone-number"
+                  placeholder={setMobilePlaceholder("생년월일8자리")}
+                  maxLength={10}
+                  ref={birthDateInputRef}
+                  onChange={(e) => {
+                    e.currentTarget.value = e.currentTarget.value
+                      .replace(/[^0-9]/g, "")
+                      .replace(/^(\d{4})(\d{2})(\d{2})$/, `$1-$2-$3`);
+                    handleBirthDateChange(e);
+                  }}
                 />
               </InputWrap>
             </RowWrap>
@@ -259,21 +276,21 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
               {/* </InputWrap> */}
             </RowWrap>
           </label>
+
           <label>
             <RowWrap>
-              <LabelText required>직업</LabelText>
-              <ErrorInput error={errorMessage}>
-                <InputWrap>
-                  <Input
-                    className="jobname"
-                    placeholder={setMobilePlaceholder("직업")}
-                    ref={jobnameInputRef}
-                    onChange={handleJobnameChange}
-                  />
-                </InputWrap>
-              </ErrorInput>
+              <LabelText>직업</LabelText>
+              <InputWrap>
+                <Input
+                  className="jobname"
+                  placeholder={setMobilePlaceholder("직업")}
+                  ref={jobnameInputRef}
+                  onChange={handleJobnameChange}
+                />
+              </InputWrap>
             </RowWrap>
           </label>
+
           <label>
             <RowWrap>
               <LabelText required>주소</LabelText>
@@ -339,9 +356,9 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
             </UseAgreementHead>
             <UseAgreementContent open={useAgreementToggle}>
               <p>
-                (가칭)국민주권당 추진위원회[이하 국민주권당(추)]의 뜻을 같이
-                하는 사람은 누구든지 발기인이 될 수 있습니다. 다만 정당법에
-                의하여 정당의 발기인이 될 수 없는 분들은 발기인 동의가 제한됨을
+                국민주권당(가칭) 창당준비위원회[국민주권당(준)]의 뜻을 같이하는
+                사람은 누구나 가입할 수 있습니다. 다만 정당법에 의하여
+                창당준비위원회에 함께 할 수 없는 분들은 가입이 제한됨을
                 알려드립니다.
               </p>
               <br />
@@ -370,14 +387,14 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
                 2. 「고등교육법」 제14조제1항·제2항에 따른 교원을 제외한
                 사립학교의 교원
                 <br />
-                3. 법령의 규정에 의하여 공무원의 신분을 가진 자
+                3. 법령의 규정에 의하여 공무원의 신분을 가진 자 ②대한민국 국민이
+                아닌 자는 당원이 될 수 없다.
               </p>
               <br />
               <p>
                 『개인정보 보호법』, 『정보통신망법』 규정에 따라
-                국민주권당(추)는 발기인 동의시 필요한 개인정보의 항목,
-                개인정보의 수집 및 이용 목적 등을 안내 드리오니 동의하여 주시기
-                바랍니다.
+                국민주권당(준)은 가입에 필요한 개인정보의 항목, 개인정보의 수집
+                및 이용 목적 등을 안내드리오니 동의하여 주시기 바랍니다.
               </p>
               <br />
               <p>
@@ -394,22 +411,22 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
               </p>
               <br />
               <p>
-                2. 수집 및 이용 목적
+                2. 수집 및 목적
                 <br />
-                - 국민주권당(추)의 창당준비위원회 중앙선거관리위원회 등록을 위한
-                발기인 동의서를 받음.
-                <br />- 국민주권당(추)의 창당 활동(당원 모집 및 창당 활동 소식
-                문자 전송 및 소통을 위한 연락)에 필요한 사항
+                - 국민주권당(준)의 창당준비위원회 가입원서를 받음
+                <br />- 국민주권당(준)의 창당 등록과 등록 후 정당 활동에 따른
+                문자 전송 및 소통에 필요한 사항
               </p>
               <br />
               <p>
-                3. 개인정보의 보유 및 이용기간
-                <br />- 개인정보의 수집 및 이용목적이 달성되면 지체없이 파기
+                3. 개인정보의 보유 및 기간
+                <br />- 개인정보의 수집 및 목적이 달성되면 지체 없이 파기
               </p>
               <br />
               <p>
-                4. 국민주권당(추) 개인정보 보호 책임자
-                <br />- 국민주권당(추) 사무국
+                4. 국민주권당(준) 개인정보 보호 책임자
+                <br />- 국민주권당(준) 사무국
+                <br />- 010-9762-0813 (문자전용)
               </p>
             </UseAgreementContent>
           </UseAgreementWrapper>

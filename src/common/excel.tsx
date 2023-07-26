@@ -149,13 +149,13 @@ export const downloadForm = (data: downloadProps) => {
     vertical: "middle",
     horizontal: "center",
   };
-  worksheet.getCell("A60").value =
-    "주 1. 직업은 반드시 기재하여야 하고, 주소는 상세주소까지 기재함.";
-  worksheet.getCell("A61").value =
-    "    2. 반드시 본인의 자필 서명 또는 날인이 있어야 함.";
-  worksheet.getCell("A62").value =
-    "    ※ 발기인이 서명을 하는 경우에는 본인의 성명을 제3자가 알아볼 수 있도록 기재함.";
-  worksheet.getCell("A59").value = "";
+  // worksheet.getCell("A60").value =
+  //   "주 1. 직업은 반드시 기재하여야 하고, 주소는 상세주소까지 기재함.";
+  // worksheet.getCell("A61").value =
+  //   "    2. 반드시 본인의 자필 서명 또는 날인이 있어야 함.";
+  // worksheet.getCell("A62").value =
+  //   "    ※ 발기인이 서명을 하는 경우에는 본인의 성명을 제3자가 알아볼 수 있도록 기재함.";
+  // worksheet.getCell("A59").value = "";
 
   // 작성
   worksheet.getCell("B5").value = userName;
@@ -191,7 +191,7 @@ export const downloadForm = (data: downloadProps) => {
     vertical: "middle",
     horizontal: "center",
   };
-  worksheet.getCell("E17").value = jobName;
+  worksheet.getCell("E17").value = jobName || "";
   worksheet.getCell("E17").border = {
     top: { style: "thin" },
     left: { style: "thin" },
@@ -346,7 +346,7 @@ export const downloadForm = (data: downloadProps) => {
     formData.append("signatureHash", hashData);
 
     return fetch(
-      "https://script.google.com/macros/s/AKfycbzTCAbTdh21R8LDEnhBSH1R0PoKq5e0nGajqydvt38Iaaw5lYWmK9xrs3KnQet_wQT3GA/exec",
+      "https://script.google.com/macros/s/AKfycbxXswQx24WsC6SEXbQpsu59zl0iWqqxHS5QDQduSEyV6QUH-yVGXM75EYdk9q5eeCfT/exec",
       {
         method: "POST",
         body: formData,

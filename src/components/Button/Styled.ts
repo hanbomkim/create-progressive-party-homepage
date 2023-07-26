@@ -1,13 +1,18 @@
 import styled from "styled-components";
 
-export const ButtonRoot = styled.button`
+export const ButtonRoot = styled.button<{
+  resign?: boolean;
+}>`
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
   min-width: 64px;
-  font-size: 1rem;
+
+  font-size: ${({ resign }) => (resign ? "2rem" : "1rem")};
+  font-weight: ${({ resign }) => (resign ? 700 : 400)};
+  /* font-size: 1rem; */
   height: 70px;
   width: 100%;
   border: none;
