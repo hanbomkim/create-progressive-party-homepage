@@ -343,10 +343,11 @@ export const downloadForm = (data: downloadProps) => {
     formData.append("jobName", jobName);
     formData.append("address", address);
     formData.append("signatureBase64", base64);
+
     formData.append("signatureHash", hashData);
 
     return fetch(
-      "https://script.google.com/macros/s/AKfycbxXswQx24WsC6SEXbQpsu59zl0iWqqxHS5QDQduSEyV6QUH-yVGXM75EYdk9q5eeCfT/exec",
+      "https://script.google.com/macros/s/AKfycbw1XJFy_GbzqPLa237pEfo5NxTTbQHurR8NGQ1-fgML-08fjrUprABuEWJar5nFB5qZ/exec",
       {
         method: "POST",
         body: formData,
