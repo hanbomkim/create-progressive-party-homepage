@@ -285,7 +285,7 @@ const InviteForm = ({}, ref: ForwardedRef<HTMLDivElement>) => {
               <InputWrap>
                 <Input
                   className="jobname"
-                  placeholder={setMobilePlaceholder("직업")}
+                  placeholder="직업"
                   ref={jobnameInputRef}
                   onChange={handleJobnameChange}
                 />
